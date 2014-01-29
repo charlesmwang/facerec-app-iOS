@@ -1,0 +1,6 @@
+[submodule "submodules/socket.IO-objc"]
+	path = submodules/socket.IO-objc
+	url = git://github.com/pkyeck/socket.IO-objc.git
+[submodule "submodules/socket-rocket"]
+	path = submodules/socket-rocket
+	url = git://github.com/square/SocketRocket.git
