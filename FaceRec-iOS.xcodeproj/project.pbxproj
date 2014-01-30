@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1699A0A4189A048800B56929 /* RecognitionViewController.m */; };
+		1699A0A7189A050000B56929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A6189A050000B56929 /* AVFoundation.framework */; };
+		1699A0A9189A0AC900B56929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A8189A0AC900B56929 /* QuartzCore.framework */; };
 		56F1721C18998477000D990C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721B18998477000D990C /* Foundation.framework */; };
 		56F1721E18998477000D990C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721D18998477000D990C /* CoreGraphics.framework */; };
 		56F1722018998477000D990C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721F18998477000D990C /* UIKit.framework */; };
@@ -48,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1699A0A3189A048800B56929 /* RecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognitionViewController.h; sourceTree = "<group>"; };
+		1699A0A4189A048800B56929 /* RecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognitionViewController.m; sourceTree = "<group>"; };
+		1699A0A6189A050000B56929 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1699A0A8189A0AC900B56929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56F1721818998477000D990C /* FaceRec-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FaceRec-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F1721B18998477000D990C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56F1721D18998477000D990C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1699A0A9189A0AC900B56929 /* QuartzCore.framework in Frameworks */,
+				1699A0A7189A050000B56929 /* AVFoundation.framework in Frameworks */,
 				56F17253189984E5000D990C /* SystemConfiguration.framework in Frameworks */,
 				56F17251189984DB000D990C /* MobileCoreServices.framework in Frameworks */,
 				56F1724F189984CF000D990C /* CFNetwork.framework in Frameworks */,
@@ -145,6 +154,8 @@
 		56F1721A18998477000D990C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1699A0A8189A0AC900B56929 /* QuartzCore.framework */,
+				1699A0A6189A050000B56929 /* AVFoundation.framework */,
 				56F17252189984E5000D990C /* SystemConfiguration.framework */,
 				56F17250189984DB000D990C /* MobileCoreServices.framework */,
 				56F1724E189984CF000D990C /* CFNetwork.framework */,
@@ -170,6 +181,8 @@
 				56F172DA1899964D000D990C /* FaceRecServer.h */,
 				56F172DB1899964D000D990C /* FaceRecServer.m */,
 				56F17291189992F8000D990C /* iPhone_Storyboard.storyboard */,
+				1699A0A3189A048800B56929 /* RecognitionViewController.h */,
+				1699A0A4189A048800B56929 /* RecognitionViewController.m */,
 				56F1722D18998477000D990C /* Images.xcassets */,
 				56F1722218998477000D990C /* Supporting Files */,
 			);
@@ -334,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F1728718998F06000D990C /* SocketIO.m in Sources */,
+				1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */,
 				56F1722818998477000D990C /* main.m in Sources */,
 				56F1722C18998477000D990C /* AppDelegate.m in Sources */,
 				56F1727418998E68000D990C /* base64.c in Sources */,
