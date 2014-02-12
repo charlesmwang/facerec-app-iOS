@@ -35,6 +35,7 @@
 		56F17292189992F8000D990C /* iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F17291189992F8000D990C /* iPhone_Storyboard.storyboard */; };
 		56F172951899931F000D990C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F172941899931F000D990C /* ViewController.m */; };
 		56F172DC1899964D000D990C /* FaceRecServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F172DB1899964D000D990C /* FaceRecServer.m */; };
+		873363C018A310220099D4EF /* RecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873363BF18A310220099D4EF /* RecognitionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		56F172941899931F000D990C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		56F172DA1899964D000D990C /* FaceRecServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecServer.h; sourceTree = "<group>"; };
 		56F172DB1899964D000D990C /* FaceRecServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceRecServer.m; sourceTree = "<group>"; };
+		873363BE18A310220099D4EF /* RecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognitionViewController.h; sourceTree = "<group>"; };
+		873363BF18A310220099D4EF /* RecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognitionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +167,9 @@
 				56F1726518998CB8000D990C /* socket.IO-objc */,
 				56F1726C18998DFB000D990C /* SocketRocket */,
 				56F1722A18998477000D990C /* AppDelegate.h */,
+				873363BF18A310220099D4EF /* RecognitionViewController.m */,
 				56F1722B18998477000D990C /* AppDelegate.m */,
+				873363BE18A310220099D4EF /* RecognitionViewController.h */,
 				56F172931899931F000D990C /* ViewController.h */,
 				56F172941899931F000D990C /* ViewController.m */,
 				56F172DA1899964D000D990C /* FaceRecServer.h */,
@@ -334,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F1728718998F06000D990C /* SocketIO.m in Sources */,
+				873363C018A310220099D4EF /* RecognitionViewController.m in Sources */,
 				56F1722818998477000D990C /* main.m in Sources */,
 				56F1722C18998477000D990C /* AppDelegate.m in Sources */,
 				56F1727418998E68000D990C /* base64.c in Sources */,
