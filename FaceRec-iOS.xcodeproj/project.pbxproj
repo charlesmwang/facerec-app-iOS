@@ -10,6 +10,14 @@
 		1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1699A0A4189A048800B56929 /* RecognitionViewController.m */; };
 		1699A0A7189A050000B56929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A6189A050000B56929 /* AVFoundation.framework */; };
 		1699A0A9189A0AC900B56929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A8189A0AC900B56929 /* QuartzCore.framework */; };
+		16BC8CFA18AFB732007D74E5 /* CaptureFaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */; };
+		16BC8CFD18AFD8A9007D74E5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */; };
+		16BC8D0018AFD8BA007D74E5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CFF18AFD8BA007D74E5 /* SignUpViewController.m */; };
+		16BC8D0318AFE4F4007D74E5 /* FaceRecAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0218AFE4F4007D74E5 /* FaceRecAPI.m */; };
+		16BC8D0518AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */; };
+		16BC8D0818B02652007D74E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0718B02652007D74E5 /* Person.m */; };
+		16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */; };
+		16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */; };
 		56F1721C18998477000D990C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721B18998477000D990C /* Foundation.framework */; };
 		56F1721E18998477000D990C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721D18998477000D990C /* CoreGraphics.framework */; };
 		56F1722018998477000D990C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721F18998477000D990C /* UIKit.framework */; };
@@ -35,7 +43,7 @@
 		56F1728B18998F06000D990C /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728018998F06000D990C /* SocketIOPacket.m */; };
 		56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728318998F06000D990C /* SocketIOTransportWebsocket.m */; };
 		56F1729018998F06000D990C /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728518998F06000D990C /* SocketIOTransportXHR.m */; };
-		56F17292189992F8000D990C /* iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F17291189992F8000D990C /* iPhone_Storyboard.storyboard */; };
+		56F17292189992F8000D990C /* iPhone_LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */; };
 		56F172951899931F000D990C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F172941899931F000D990C /* ViewController.m */; };
 		56F172DC1899964D000D990C /* FaceRecServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F172DB1899964D000D990C /* FaceRecServer.m */; };
 /* End PBXBuildFile section */
@@ -55,6 +63,21 @@
 		1699A0A4189A048800B56929 /* RecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognitionViewController.m; sourceTree = "<group>"; };
 		1699A0A6189A050000B56929 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1699A0A8189A0AC900B56929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		16BC8CF818AFB732007D74E5 /* CaptureFaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureFaceViewController.h; sourceTree = "<group>"; };
+		16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureFaceViewController.m; sourceTree = "<group>"; };
+		16BC8CFB18AFD8A9007D74E5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		16BC8CFE18AFD8BA007D74E5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		16BC8CFF18AFD8BA007D74E5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		16BC8D0118AFE4F4007D74E5 /* FaceRecAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecAPI.h; sourceTree = "<group>"; };
+		16BC8D0218AFE4F4007D74E5 /* FaceRecAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceRecAPI.m; sourceTree = "<group>"; };
+		16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_MainStoryboard.storyboard; sourceTree = "<group>"; };
+		16BC8D0618B02652007D74E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		16BC8D0718B02652007D74E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		16BC8D0918B02C8B007D74E5 /* PeopleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewController.h; sourceTree = "<group>"; };
+		16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewController.m; sourceTree = "<group>"; };
+		16BC8D0C18B035C7007D74E5 /* PersonRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRegisterViewController.h; sourceTree = "<group>"; };
+		16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRegisterViewController.m; sourceTree = "<group>"; };
 		56F1721818998477000D990C /* FaceRec-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FaceRec-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F1721B18998477000D990C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56F1721D18998477000D990C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,7 +117,7 @@
 		56F1728318998F06000D990C /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportWebsocket.m; path = "../submodules/socket.IO-objc/SocketIOTransportWebsocket.m"; sourceTree = "<group>"; };
 		56F1728418998F06000D990C /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportXHR.h; path = "../submodules/socket.IO-objc/SocketIOTransportXHR.h"; sourceTree = "<group>"; };
 		56F1728518998F06000D990C /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = "../submodules/socket.IO-objc/SocketIOTransportXHR.m"; sourceTree = "<group>"; };
-		56F17291189992F8000D990C /* iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		56F172931899931F000D990C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		56F172941899931F000D990C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		56F172DA1899964D000D990C /* FaceRecServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecServer.h; sourceTree = "<group>"; };
@@ -175,14 +198,29 @@
 				56F1726518998CB8000D990C /* socket.IO-objc */,
 				56F1726C18998DFB000D990C /* SocketRocket */,
 				56F1722A18998477000D990C /* AppDelegate.h */,
+				16BC8D0118AFE4F4007D74E5 /* FaceRecAPI.h */,
+				16BC8D0218AFE4F4007D74E5 /* FaceRecAPI.m */,
+				16BC8D0618B02652007D74E5 /* Person.h */,
+				16BC8D0718B02652007D74E5 /* Person.m */,
 				56F1722B18998477000D990C /* AppDelegate.m */,
 				56F172931899931F000D990C /* ViewController.h */,
 				56F172941899931F000D990C /* ViewController.m */,
 				56F172DA1899964D000D990C /* FaceRecServer.h */,
 				56F172DB1899964D000D990C /* FaceRecServer.m */,
-				56F17291189992F8000D990C /* iPhone_Storyboard.storyboard */,
+				56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */,
+				16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */,
+				16BC8D0C18B035C7007D74E5 /* PersonRegisterViewController.h */,
+				16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */,
+				16BC8D0918B02C8B007D74E5 /* PeopleTableViewController.h */,
+				16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */,
+				16BC8CFE18AFD8BA007D74E5 /* SignUpViewController.h */,
+				16BC8CFF18AFD8BA007D74E5 /* SignUpViewController.m */,
+				16BC8CFB18AFD8A9007D74E5 /* LoginViewController.h */,
+				16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */,
 				1699A0A3189A048800B56929 /* RecognitionViewController.h */,
 				1699A0A4189A048800B56929 /* RecognitionViewController.m */,
+				16BC8CF818AFB732007D74E5 /* CaptureFaceViewController.h */,
+				16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */,
 				56F1722D18998477000D990C /* Images.xcassets */,
 				56F1722218998477000D990C /* Supporting Files */,
 			);
@@ -327,7 +365,8 @@
 			files = (
 				56F1722618998477000D990C /* InfoPlist.strings in Resources */,
 				56F1722E18998477000D990C /* Images.xcassets in Resources */,
-				56F17292189992F8000D990C /* iPhone_Storyboard.storyboard in Resources */,
+				16BC8D0518AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard in Resources */,
+				56F17292189992F8000D990C /* iPhone_LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,17 +387,24 @@
 			files = (
 				56F1728718998F06000D990C /* SocketIO.m in Sources */,
 				1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */,
+				16BC8CFA18AFB732007D74E5 /* CaptureFaceViewController.m in Sources */,
 				56F1722818998477000D990C /* main.m in Sources */,
 				56F1722C18998477000D990C /* AppDelegate.m in Sources */,
 				56F1727418998E68000D990C /* base64.c in Sources */,
+				16BC8D0818B02652007D74E5 /* Person.m in Sources */,
+				16BC8D0018AFD8BA007D74E5 /* SignUpViewController.m in Sources */,
+				16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */,
 				56F1727718998E68000D990C /* NSData+SRB64Additions.m in Sources */,
 				56F172951899931F000D990C /* ViewController.m in Sources */,
 				56F172DC1899964D000D990C /* FaceRecServer.m in Sources */,
 				56F1727A18998E68000D990C /* SRWebSocket.m in Sources */,
+				16BC8D0318AFE4F4007D74E5 /* FaceRecAPI.m in Sources */,
 				56F1728918998F06000D990C /* SocketIOJSONSerialization.m in Sources */,
 				56F1728B18998F06000D990C /* SocketIOPacket.m in Sources */,
+				16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */,
 				56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */,
 				56F1729018998F06000D990C /* SocketIOTransportXHR.m in Sources */,
+				16BC8CFD18AFD8A9007D74E5 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
