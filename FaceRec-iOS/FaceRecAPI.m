@@ -157,10 +157,12 @@
 }
 
 +(void) addFace:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**)error{
+                NSLog(@"Inside Here 2");    
     //Check if the parameters exist.
     if([dict objectForKey:@"username"] && [dict objectForKey:@"image"] &&
        [dict objectForKey:@"imageformat"] && [dict objectForKey:@"person"])
     {
+                NSLog(@"Inside Here 5");
         NSDictionary* requestObjects = [[NSDictionary alloc] initWithObjectsAndKeys:
                                         [dict objectForKey:@"username"], @"username",
                                         [(Person*)[dict objectForKey:@"person"] email], @"email",
@@ -169,12 +171,14 @@
                                         nil];
         NSMutableURLRequest* request = [self createRequestAtPath:@"/faces/add" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
         NSHTTPURLResponse *serverResponse = nil;
+                        NSLog(@"Inside Here 4");
         NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
-        
+                        NSLog(@"Inside Here 3");
         if(serverResponse != nil)
         {
             if([serverResponse statusCode] == 201)
             {
+                NSLog(@"Inside Here");
                 if(data_response != nil)
                     *response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
             }
@@ -187,6 +191,7 @@
     else
     {
         //Create error object
+        NSLog(@"ERROR");
     }
 }
 

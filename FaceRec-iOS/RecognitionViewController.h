@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "SocketIOPacket.h"
+#import "SocketIO.h"
+#import "Person.h"
+#import "FaceRecAPI.h"
 
-@interface RecognitionViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface RecognitionViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate, SocketIODelegate>
 @property (strong, nonatomic) IBOutlet UIView *preview;
 @property (nonatomic, strong) dispatch_queue_t videoDataOutputQueue;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
 @property (nonatomic, strong) CIDetector *faceDetector;
+@property(nonatomic, strong) SocketIO* socket;
+@property (nonatomic, assign) BOOL isUsingFrontFacingCamera;
+@property (nonatomic, strong) NSArray *features;
+@property (nonatomic, strong) CIFaceFeature *faceFeature;
 @end
