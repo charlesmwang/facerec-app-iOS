@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Person.h"
 #import "FaceRecAPI.h"
+#import "CaptureFaceViewController.h"
 
 @interface PeopleTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray* people;
-
 @end

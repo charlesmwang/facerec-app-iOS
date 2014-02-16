@@ -85,8 +85,38 @@
     
 }
 
-+(void) addPerson:(NSDictionary*) dict response:(NSDictionary*) response error:(NSError**) error{
-    
++(void) addPerson:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**) error{
+    //Check if the parameters exist.
+    if([dict objectForKey:@"firstname"] && [dict objectForKey:@"lastname"] &&
+       [dict objectForKey:@"email"] && [dict objectForKey:@"username"])
+    {
+        NSDictionary* requestObjects = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                        [dict objectForKey:@"firstname"], @"firstname",
+                                        [dict objectForKey:@"lastname"], @"lastname",
+                                        [dict objectForKey:@"email"], @"email",
+                                        [dict objectForKey:@"username"], @"username",
+                                        nil];
+        NSMutableURLRequest* request = [self createRequestAtPath:@"/people/register" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
+        NSHTTPURLResponse *serverResponse = nil;
+        NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
+        
+        if(serverResponse != nil)
+        {
+            if([serverResponse statusCode] == 201)
+            {
+                if(data_response != nil)
+                    *response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
+            }
+            else if([serverResponse statusCode] == 301)
+            {
+                //Create error object
+            }
+        }
+    }
+    else
+    {
+        //Create error object
+    }
 }
 
 +(void) getPeopleList:(NSDictionary*) dict response:(NSArray**) response error:(NSError**) error{
@@ -127,7 +157,37 @@
 }
 
 +(void) addFace:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**)error{
-    
+    //Check if the parameters exist.
+    if([dict objectForKey:@"username"] && [dict objectForKey:@"image"] &&
+       [dict objectForKey:@"imageformat"] && [dict objectForKey:@"person"])
+    {
+        NSDictionary* requestObjects = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                        [dict objectForKey:@"username"], @"username",
+                                        [(Person*)[dict objectForKey:@"person"] email], @"email",
+                                        [self imageToBase64:(UIImage*)[dict objectForKey:@"image"]], @"image",
+                                        [dict objectForKey:@"imageformat"], @"imageformat",
+                                        nil];
+        NSMutableURLRequest* request = [self createRequestAtPath:@"/faces/add" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
+        NSHTTPURLResponse *serverResponse = nil;
+        NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
+        
+        if(serverResponse != nil)
+        {
+            if([serverResponse statusCode] == 201)
+            {
+                if(data_response != nil)
+                    *response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
+            }
+            else if([serverResponse statusCode] == 301)
+            {
+                //Create error object
+            }
+        }
+    }
+    else
+    {
+        //Create error object
+    }
 }
 
 +(NSMutableURLRequest*)createRequestAtPath: (NSString*) path json:(NSDictionary*) json HTTPMethod:(NSString*) method timeout:(double) time
@@ -151,5 +211,10 @@
         [request setHTTPBody:jsonData];
     }
     return request;
+}
+
++(NSString*)imageToBase64:(UIImage*) image
+{
+    return [UIImageJPEGRepresentation(image, 1.0) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 @end

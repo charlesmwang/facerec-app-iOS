@@ -10,6 +10,8 @@
 
 @implementation Person
 
+@synthesize firstName, lastName, email, trackingID;
+
 -(id) initWithFirstName:(NSString*) firstname LastName:(NSString*) lastname Email:(NSString*) Email
 {
     self = [super init];

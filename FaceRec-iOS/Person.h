@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Person : NSObject
-@property (nonatomic, weak) NSString* firstName;
-@property (nonatomic, weak) NSString* lastName;
-@property (nonatomic, weak) NSString* email;
+@property (nonatomic, strong) NSString* firstName;
+@property (nonatomic, strong) NSString* lastName;
+@property (nonatomic, strong) NSString* email;
 @property (nonatomic, assign) int trackingID;
 
 -(id) initWithFirstName:(NSString*) firstname LastName:(NSString*) lastname Email:(NSString*) Email;

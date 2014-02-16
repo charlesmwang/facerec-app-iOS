@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Person.h"
+#import "FaceRecAPI.h"
 
-@interface CaptureFaceViewController : UIViewController <UIImagePickerControllerDelegate>
+@interface CaptureFaceViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) Person* person;
-
+@property (nonatomic, strong) UIAlertView* alertView;
 
 @end

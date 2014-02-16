@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CaptureFaceViewController.h"
+#import "FaceRecAPI.h"
 
-@interface PersonRegisterViewController : UIViewController
-
+@interface PersonRegisterViewController : UIViewController <UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *firstname_field;
+@property (strong, nonatomic) IBOutlet UITextField *lastname_field;
+@property (strong, nonatomic) IBOutlet UITextField *email_field;
 @end
