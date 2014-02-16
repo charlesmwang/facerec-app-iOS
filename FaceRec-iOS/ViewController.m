@@ -27,8 +27,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //handshake
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:1337/"] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    
 	// Do any additional setup after loading the view.
-    FaceRecServer *server = [[FaceRecServer alloc]initWithIpAddress:@"localhost" port:3000];
+    FaceRecServer *server = [[FaceRecServer alloc]initWithIpAddress:@"localhost" port:1337];
     _socket = [[SocketIO alloc] initWithDelegate:self];
     [_socket connectToHost:server.ip_address onPort:server.port];
     //[socket sendMessage:@"hello world"];
@@ -55,6 +65,14 @@
         
         NSLog(@"Name: %@, Message %@",[json objectForKey:@"name"], [json objectForKey:@"message"]);
     }
+    else if([packet.name isEqualToString:@"error"])
+    {
+        NSArray *data = [[packet dataAsJSON] objectForKey:@"args"];
+        NSLog(@"%@",[data objectAtIndex:0]);
+        NSDictionary *json = [data objectAtIndex:0];
+        
+        NSLog(@"Message %@",[json objectForKey:@"message"]);
+    }
 }
 
 - (void) socketIO:(SocketIO *)socket didReceiveJSON:(SocketIOPacket *)packet
@@ -64,10 +82,11 @@
 
 - (IBAction)greeting:(id)sender {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:@"Charles" forKey:@"name"];
-    [dict setObject:@"From iOS App" forKey:@"message"];
+    [dict setObject:@"Charles" forKey:@"username"];
+    [dict setObject:@"From iOS App" forKey:@"image"];
+    [dict setObject:@".jpg" forKey:@"imageformat"];
     
-    [_socket sendEvent:@"hello" withData:dict];
+    [_socket sendEvent:@"recognize" withData:dict];
 }
 
 @end
