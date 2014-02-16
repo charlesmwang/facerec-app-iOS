@@ -77,7 +77,7 @@
 {
     NSError *error;
     NSArray *array;
-    [FaceRecAPI getPeopleList:[[NSDictionary alloc] initWithObjectsAndKeys:@"makoto117", @"username", nil] response:&array error:&error];
+    [FaceRecAPI getPeopleList:[[NSDictionary alloc] initWithObjectsAndKeys:[[User CurrentUser] username], @"username", nil] response:&array error:&error];
     people = [array copy];
     array = nil;
     [self.tableView reloadData];

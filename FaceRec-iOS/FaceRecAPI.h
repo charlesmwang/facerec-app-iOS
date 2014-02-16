@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Person.h"
+#import "User.h"
 
 @interface FaceRecAPI : NSObject
 

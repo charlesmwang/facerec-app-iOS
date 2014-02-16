@@ -107,7 +107,7 @@
     cropBox.alpha = 0.2;
 
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          [self imageWithImage:screenshot scaledToSize:CGSizeMake(92, 112)], @"image", @".jpg", @"imageformat", @"makoto117", @"username", person, @"person", nil];
+                          [self imageWithImage:screenshot scaledToSize:CGSizeMake(92, 112)], @"image", @".jpg", @"imageformat", [[User CurrentUser] username], @"username", person, @"person", nil];
     
     NSDictionary *response;
     NSError *error;

@@ -26,6 +26,7 @@
                                        [dict objectForKey:@"email"], @"email",
                                        [dict objectForKey:@"username"], @"username",
                                        [dict objectForKey:@"password"], @"password",
+                                       [[User CurrentUser] access_token], @"token",
                                        nil];
         NSMutableURLRequest* request = [self createRequestAtPath:@"/signup" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
         NSHTTPURLResponse *serverResponse = nil;
@@ -61,17 +62,19 @@
         NSMutableURLRequest* request = [self createRequestAtPath:@"/login" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
         NSHTTPURLResponse *serverResponse = nil;
         NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
-        
+        if(data_response != nil)
+            *response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
+
         if(serverResponse != nil)
         {
             if([serverResponse statusCode] == 200)
             {
-                if(data_response != nil)
-                    *response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
+                *error = nil;
+                return;
             }
-            else if([serverResponse statusCode] == 301)
+            else// if([serverResponse statusCode] == 301)
             {
-                //Create error object
+                *error = [[NSError alloc] init];
             }
         }
     }
@@ -111,6 +114,7 @@
                                         [dict objectForKey:@"lastname"], @"lastname",
                                         [dict objectForKey:@"email"], @"email",
                                         [dict objectForKey:@"username"], @"username",
+                                        [[User CurrentUser] access_token], @"token",
                                         nil];
         NSMutableURLRequest* request = [self createRequestAtPath:@"/people/register" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
         NSHTTPURLResponse *serverResponse = nil;
@@ -139,7 +143,10 @@
     //Check if the parameters exist.
     if([dict objectForKey:@"username"])
     {
-        NSMutableURLRequest* request = [self createRequestAtPath: [NSString stringWithFormat:@"/people?%@=%@",@"username",[dict objectForKey:@"username"]]
+        NSMutableURLRequest* request = [self createRequestAtPath:
+                                        [NSString stringWithFormat:@"/people?%@=%@&%@=%@",
+                                         @"username",[dict objectForKey:@"username"],
+                                         @"token", [[User CurrentUser]access_token]]
                                                             json:nil HTTPMethod:@"GET" timeout:10.0];
         NSHTTPURLResponse *serverResponse = nil;
         NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
@@ -184,6 +191,7 @@
                                         [(Person*)[dict objectForKey:@"person"] email], @"email",
                                         [self imageToBase64:(UIImage*)[dict objectForKey:@"image"]], @"image",
                                         [dict objectForKey:@"imageformat"], @"imageformat",
+                                        [[User CurrentUser] access_token], @"token",
                                         nil];
         NSMutableURLRequest* request = [self createRequestAtPath:@"/faces/add" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
         NSHTTPURLResponse *serverResponse = nil;

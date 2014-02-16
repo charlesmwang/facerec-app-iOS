@@ -21,13 +21,18 @@ static User *CurrentUser = nil;
     return CurrentUser;
 }
 
-- (id)initWithUsername: (NSString*)m_username token:m_token
+- (id)initWithUsername: (NSString*)m_username token:m_token expiration:(NSString*) date
 {
     CurrentUser = [super init];
     if(self)
     {
         self.username = m_username;
         self.access_token = m_token;
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+        [df setTimeZone:timeZone];
+        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+        self.expiration = [df dateFromString:date];
     }
     return self;
 }

@@ -12,6 +12,7 @@
 #import "SocketIO.h"
 #import "Person.h"
 #import "FaceRecAPI.h"
+#import "User.h"
 
 @interface RecognitionViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate, SocketIODelegate>
 @property (strong, nonatomic) IBOutlet UIView *preview;

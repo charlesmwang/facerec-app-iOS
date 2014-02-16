@@ -41,7 +41,7 @@
     {
         NSDictionary *response;
         NSError *error;
-        NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"makoto117", @"username",
+        NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[[User CurrentUser] username], @"username",
                                                                             [_firstname_field text], @"firstname",
                                                                             [_lastname_field text], @"lastname",
                                                                             [_email_field text], @"email",

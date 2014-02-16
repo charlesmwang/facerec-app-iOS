@@ -199,7 +199,7 @@ imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOr
             NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                   [FaceRecAPI imageToBase64:[img imageRotatedByDegrees:90]], @"image",
                                   @".jpg", @"imageformat",
-                                  @"makoto117", @"username",
+                                  [[User CurrentUser] username], @"username",
                                   [NSString stringWithFormat:@"%d",[_faceFeature trackingID]],@"trackingID",
                                   nil];
             [_socket sendEvent:@"recognize" withData:dict];

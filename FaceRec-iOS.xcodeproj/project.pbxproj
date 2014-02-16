@@ -47,7 +47,6 @@
 		56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728318998F06000D990C /* SocketIOTransportWebsocket.m */; };
 		56F1729018998F06000D990C /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728518998F06000D990C /* SocketIOTransportXHR.m */; };
 		56F17292189992F8000D990C /* iPhone_LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */; };
-		56F172951899931F000D990C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F172941899931F000D990C /* ViewController.m */; };
 		56F172DC1899964D000D990C /* FaceRecServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F172DB1899964D000D990C /* FaceRecServer.m */; };
 /* End PBXBuildFile section */
 
@@ -127,8 +126,6 @@
 		56F1728418998F06000D990C /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportXHR.h; path = "../submodules/socket.IO-objc/SocketIOTransportXHR.h"; sourceTree = "<group>"; };
 		56F1728518998F06000D990C /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = "../submodules/socket.IO-objc/SocketIOTransportXHR.m"; sourceTree = "<group>"; };
 		56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_LoginStoryboard.storyboard; sourceTree = "<group>"; };
-		56F172931899931F000D990C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		56F172941899931F000D990C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		56F172DA1899964D000D990C /* FaceRecServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecServer.h; sourceTree = "<group>"; };
 		56F172DB1899964D000D990C /* FaceRecServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceRecServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,8 +211,6 @@
 				16BC8D0218AFE4F4007D74E5 /* FaceRecAPI.m */,
 				16BC8D0618B02652007D74E5 /* Person.h */,
 				16BC8D0718B02652007D74E5 /* Person.m */,
-				56F172931899931F000D990C /* ViewController.h */,
-				56F172941899931F000D990C /* ViewController.m */,
 				56F172DA1899964D000D990C /* FaceRecServer.h */,
 				56F172DB1899964D000D990C /* FaceRecServer.m */,
 				56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */,
@@ -411,7 +406,6 @@
 				16BC8D0018AFD8BA007D74E5 /* SignUpViewController.m in Sources */,
 				16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */,
 				56F1727718998E68000D990C /* NSData+SRB64Additions.m in Sources */,
-				56F172951899931F000D990C /* ViewController.m in Sources */,
 				16BC8D1918B160A2007D74E5 /* User.m in Sources */,
 				56F172DC1899964D000D990C /* FaceRecServer.m in Sources */,
 				56F1727A18998E68000D990C /* SRWebSocket.m in Sources */,

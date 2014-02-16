@@ -47,6 +47,8 @@
         [self proceedLoginProcessWithUsername:username password:password];
         NSLog(@"username: %@, password: %@", username, password);
     }
+    
+    _alertView = [[UIAlertView alloc]initWithTitle:@"Title" message:@"Message" delegate:nil cancelButtonTitle:@"OK:" otherButtonTitles: nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,9 +64,9 @@
     [FaceRecAPI login:dict response:&response error:&error];
     
     //If Succeeded
-    //if()
+    if(!error)
     {
-        User *user = [[User alloc] initWithUsername:username token: [response objectForKey:@"access_token"]];
+        User *user = [[User alloc] initWithUsername:username token: [response objectForKey:@"access_token"] expiration:[response objectForKey:@"expiration"]];
         NSLog(@"Access Token: %@", user.access_token);
         //Store username and password
         if(![_username_field.text isEqualToString:@""] && ![_password_field.text isEqualToString:@""])
@@ -73,11 +75,25 @@
             [_keychain setObject:_username_field.text forKey:(__bridge id)(kSecAttrAccount)];
             [_keychain setObject:_password_field.text forKey:(__bridge id)(kSecValueData)];
         }
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"iPhone_MainStoryboard" bundle:nil];
+        UIViewController *viewController = [mainStoryboard instantiateInitialViewController];
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    else
+    {
+        if(response)
+        {
+            _alertView.title = @"Failed to login!";
+            _alertView.message = [response objectForKey:@"status"];
+        }
+        else
+        {
+            _alertView.title = @"Failed to login!";
+            _alertView.message = @"Unknown Error";
+        }
+        [_alertView show];
     }
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"iPhone_MainStoryboard" bundle:nil];
-    UIViewController *viewController = [mainStoryboard instantiateInitialViewController];
-    [self presentViewController:viewController animated:YES completion:nil];
 
 }
 
