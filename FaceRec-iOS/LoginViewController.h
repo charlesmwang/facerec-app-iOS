@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "FaceRecAPI.h"
 #import "Person.h"
+#import "KeychainItemWrapper.h"
+#import "User.h"
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *username_field;

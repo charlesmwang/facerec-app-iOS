@@ -17,4 +17,6 @@
 + (void) addPerson:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**) error;
 + (void) addFace:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**)error;
 + (NSString*)imageToBase64:(UIImage*) image;
++ (void) logout:(NSDictionary*) response error:(NSError**) error;
+
 @end

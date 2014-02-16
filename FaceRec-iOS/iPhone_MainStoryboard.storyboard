@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-1642" y="479"/>
         </scene>
-        <!--View Controller - Main Menu-->
+        <!--Main Menu View Controller - Main Menu-->
         <scene sceneID="WeZ-1w-G10">
             <objects>
-                <viewController id="tnd-Ja-7cX" sceneMemberID="viewController">
+                <viewController id="tnd-Ja-7cX" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="skl-2G-Muf"/>
                         <viewControllerLayoutGuide type="bottom" id="PTs-Qw-u0d"/>
@@ -59,6 +59,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="988-vy-rJk" kind="push" id="G9g-hX-FAz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccl-IL-vdx">
+                                <rect key="frame" x="137" y="346" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="tnd-Ja-7cX" eventType="touchUpInside" id="OzO-UI-2RF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -337,6 +347,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cc1-ST-awx"/>
+        <segue reference="19z-cZ-5OU"/>
     </inferredMetricsTieBreakers>
 </document>

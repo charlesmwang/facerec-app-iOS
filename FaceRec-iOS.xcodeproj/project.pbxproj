@@ -18,6 +18,9 @@
 		16BC8D0818B02652007D74E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0718B02652007D74E5 /* Person.m */; };
 		16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */; };
 		16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */; };
+		16BC8D1318B157F7007D74E5 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */; };
+		16BC8D1618B15D3B007D74E5 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */; };
+		16BC8D1918B160A2007D74E5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1818B160A2007D74E5 /* User.m */; };
 		56F1721C18998477000D990C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721B18998477000D990C /* Foundation.framework */; };
 		56F1721E18998477000D990C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721D18998477000D990C /* CoreGraphics.framework */; };
 		56F1722018998477000D990C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721F18998477000D990C /* UIKit.framework */; };
@@ -78,6 +81,12 @@
 		16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewController.m; sourceTree = "<group>"; };
 		16BC8D0C18B035C7007D74E5 /* PersonRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRegisterViewController.h; sourceTree = "<group>"; };
 		16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRegisterViewController.m; sourceTree = "<group>"; };
+		16BC8D1118B157F7007D74E5 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		16BC8D1418B15D3B007D74E5 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		16BC8D1718B160A2007D74E5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		16BC8D1818B160A2007D74E5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		56F1721818998477000D990C /* FaceRec-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FaceRec-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F1721B18998477000D990C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56F1721D18998477000D990C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -198,17 +207,21 @@
 				56F1726518998CB8000D990C /* socket.IO-objc */,
 				56F1726C18998DFB000D990C /* SocketRocket */,
 				56F1722A18998477000D990C /* AppDelegate.h */,
+				56F1722B18998477000D990C /* AppDelegate.m */,
+				16BC8D1118B157F7007D74E5 /* KeychainItemWrapper.h */,
+				16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */,
 				16BC8D0118AFE4F4007D74E5 /* FaceRecAPI.h */,
 				16BC8D0218AFE4F4007D74E5 /* FaceRecAPI.m */,
 				16BC8D0618B02652007D74E5 /* Person.h */,
 				16BC8D0718B02652007D74E5 /* Person.m */,
-				56F1722B18998477000D990C /* AppDelegate.m */,
 				56F172931899931F000D990C /* ViewController.h */,
 				56F172941899931F000D990C /* ViewController.m */,
 				56F172DA1899964D000D990C /* FaceRecServer.h */,
 				56F172DB1899964D000D990C /* FaceRecServer.m */,
 				56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */,
 				16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */,
+				16BC8D1418B15D3B007D74E5 /* MainMenuViewController.h */,
+				16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */,
 				16BC8D0C18B035C7007D74E5 /* PersonRegisterViewController.h */,
 				16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */,
 				16BC8D0918B02C8B007D74E5 /* PeopleTableViewController.h */,
@@ -217,6 +230,8 @@
 				16BC8CFF18AFD8BA007D74E5 /* SignUpViewController.m */,
 				16BC8CFB18AFD8A9007D74E5 /* LoginViewController.h */,
 				16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */,
+				16BC8D1718B160A2007D74E5 /* User.h */,
+				16BC8D1818B160A2007D74E5 /* User.m */,
 				1699A0A3189A048800B56929 /* RecognitionViewController.h */,
 				1699A0A4189A048800B56929 /* RecognitionViewController.m */,
 				16BC8CF818AFB732007D74E5 /* CaptureFaceViewController.h */,
@@ -391,17 +406,20 @@
 				56F1722818998477000D990C /* main.m in Sources */,
 				56F1722C18998477000D990C /* AppDelegate.m in Sources */,
 				56F1727418998E68000D990C /* base64.c in Sources */,
+				16BC8D1618B15D3B007D74E5 /* MainMenuViewController.m in Sources */,
 				16BC8D0818B02652007D74E5 /* Person.m in Sources */,
 				16BC8D0018AFD8BA007D74E5 /* SignUpViewController.m in Sources */,
 				16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */,
 				56F1727718998E68000D990C /* NSData+SRB64Additions.m in Sources */,
 				56F172951899931F000D990C /* ViewController.m in Sources */,
+				16BC8D1918B160A2007D74E5 /* User.m in Sources */,
 				56F172DC1899964D000D990C /* FaceRecServer.m in Sources */,
 				56F1727A18998E68000D990C /* SRWebSocket.m in Sources */,
 				16BC8D0318AFE4F4007D74E5 /* FaceRecAPI.m in Sources */,
 				56F1728918998F06000D990C /* SocketIOJSONSerialization.m in Sources */,
 				56F1728B18998F06000D990C /* SocketIOPacket.m in Sources */,
 				16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */,
+				16BC8D1318B157F7007D74E5 /* KeychainItemWrapper.m in Sources */,
 				56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */,
 				56F1729018998F06000D990C /* SocketIOTransportXHR.m in Sources */,
 				16BC8CFD18AFD8A9007D74E5 /* LoginViewController.m in Sources */,

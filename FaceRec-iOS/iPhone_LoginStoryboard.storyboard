@@ -4,68 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ODd-uF-6At">
-            <objects>
-                <viewController id="v5v-wW-JgA" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lvL-dB-cfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tjM-Xj-Y4m">
-                                <rect key="frame" x="104" y="145" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ArR-6M-6g0">
-                                <rect key="frame" x="126" y="317" width="68" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Send Test">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="greeting:" destination="v5v-wW-JgA" eventType="touchUpInside" id="Q4S-id-gxI"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fZr-Ay-hKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1359" y="-72"/>
-        </scene>
-        <!--Capture Face View Controller-->
-        <scene sceneID="seD-s7-jOe">
-            <objects>
-                <viewController id="nGo-ef-Pb6" customClass="CaptureFaceViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ADm-xX-F0f">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="goS-uZ-VAG"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M1u-dr-4a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="440" y="-72"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="20g-Vs-3OI">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="dx4-Gz-6rv" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gu7-d0-mzs">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="nGo-ef-Pb6" kind="relationship" relationship="rootViewController" id="12E-Dr-1U8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0jn-bd-0dH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-54" y="-103"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="pS8-XP-8tB">
             <objects>
@@ -87,7 +25,7 @@
                                 <rect key="frame" x="20" y="229" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="mG8-wW-ICz" id="UJg-Uw-EWZ"/>
                                 </connections>
@@ -300,30 +238,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kU4-nB-eUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1271" y="2068"/>
-        </scene>
-        <!--Recognition View Controller-->
-        <scene sceneID="NCe-VT-IbQ">
-            <objects>
-                <viewController id="QnN-bQ-cHQ" customClass="RecognitionViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tm5-Hc-mSf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="4Yg-O3-shm">
-                                <rect key="frame" x="0.0" y="20" width="320" height="510"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="preview" destination="4Yg-O3-shm" id="zvL-M0-bvh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8NA-Ko-SId" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="897" y="638"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

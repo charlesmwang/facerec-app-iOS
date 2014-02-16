@@ -82,7 +82,23 @@
 }
 
 +(void) logout:(NSDictionary*) response error:(NSError**) error{
-    
+
+
+    NSMutableURLRequest* request = [self createRequestAtPath:@"/logout" json:nil HTTPMethod:@"GET" timeout:10.0];
+    NSHTTPURLResponse *serverResponse = nil;
+    NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
+
+    if(serverResponse != nil)
+    {
+        if([serverResponse statusCode] == 200)
+        {
+            
+        }
+        else if([serverResponse statusCode] == 301)
+        {
+            //Create error object
+        }
+    }
 }
 
 +(void) addPerson:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**) error{
