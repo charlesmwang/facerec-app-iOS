@@ -46,7 +46,7 @@
                                                                             [_lastname_field text], @"lastname",
                                                                             [_email_field text], @"email",
                                                                             nil];
-        //[FaceRecAPI addPerson:dict response:&response error:&error];
+        [FaceRecAPI addPerson:dict response:&response error:&error];
         //if(!error && response)
         {
             return YES;

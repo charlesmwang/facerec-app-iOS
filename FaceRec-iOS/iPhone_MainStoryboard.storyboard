@@ -233,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="229" y="-403"/>
         </scene>
-        <!--View Controller-->
+        <!--Recognition View Controller-->
         <scene sceneID="E94-Xe-Ks2">
             <objects>
-                <viewController id="uLb-Q9-EyW" sceneMemberID="viewController">
+                <viewController id="uLb-Q9-EyW" customClass="RecognitionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eVC-oQ-3RR"/>
                         <viewControllerLayoutGuide type="bottom" id="wRt-Pp-1N6"/>
@@ -244,9 +244,19 @@
                     <view key="view" contentMode="scaleToFill" id="iDq-iq-VdS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFw-aR-Psa">
+                                <rect key="frame" x="0.0" y="39" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="aHR-mh-Pbw"/>
+                    <connections>
+                        <outlet property="preview" destination="gFw-aR-Psa" id="k5a-Ow-JYN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14V-SZ-QzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
