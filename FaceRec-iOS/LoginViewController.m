@@ -29,6 +29,20 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    //Server Stuff
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    NSArray *servers = [appDelegate getServerList];
+    FaceRecServer *server = [[FaceRecServer alloc] init];
+    
+    for( Server *s in servers)
+    {
+        if([s.selected boolValue])
+        {
+            server.ip_address = s.ip_address;
+            server.port = [s.port intValue];
+        }
+    }
+    
     _keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"FaceRecApp" accessGroup:nil];
     NSString *username =[_keychain objectForKey:(__bridge id)(kSecAttrAccount)];
     NSString *password =[_keychain objectForKey:(__bridge id)(kSecValueData)];

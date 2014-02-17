@@ -4,6 +4,41 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
+        <!--Server List View Controller-->
+        <scene sceneID="zV4-Y5-FL2">
+            <objects>
+                <tableViewController id="9Pn-p5-gcX" customClass="ServerListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7aJ-nu-Ww5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="69T-e5-mrt">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="69T-e5-mrt" id="bo8-dm-GVH">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Pn-p5-gcX" id="OmU-AO-uzu"/>
+                            <outlet property="delegate" destination="9Pn-p5-gcX" id="Kkh-9H-uU7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="iVB-xw-uUJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lUU-0k-r7Z">
+                            <connections>
+                                <action selector="addServer:" destination="9Pn-p5-gcX" id="33n-o0-g9J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fob-Xe-FTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-250" y="1422"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="pS8-XP-8tB">
             <objects>
@@ -67,7 +102,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JUd-Ml-I9L"/>
+                    <navigationItem key="navigationItem" id="JUd-Ml-I9L">
+                        <barButtonItem key="rightBarButtonItem" title="Servers" id="G8r-ko-uYG">
+                            <connections>
+                                <segue destination="9Pn-p5-gcX" kind="push" id="1yM-mU-ee2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="password_field" destination="sE6-Eh-s6m" id="H41-cU-ePg"/>
                         <outlet property="username_field" destination="mhN-LU-F1I" id="czz-xS-e0g"/>
@@ -221,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asR-PP-btS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-298" y="2077"/>
+            <point key="canvasLocation" x="-250" y="2557"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Got-oG-bpe">

@@ -11,6 +11,9 @@
 #import "Person.h"
 #import "KeychainItemWrapper.h"
 #import "User.h"
+#import "AppDelegate.h"
+#import "Server.h"
+#import "FaceRecServer.h"
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *username_field;

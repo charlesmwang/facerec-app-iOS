@@ -56,7 +56,6 @@
 {
 
     // Return the number of rows in the section.
-    NSLog(@"people %d",[people count]);
     return [people count];
 }
 
