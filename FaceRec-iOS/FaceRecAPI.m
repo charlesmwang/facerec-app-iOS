@@ -51,41 +51,6 @@
     }
 }
 
-+(void) addPerson:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**) error{
-    //Check if the parameters exist.
-    if([dict objectForKey:@"firstname"] && [dict objectForKey:@"lastname"] &&
-       [dict objectForKey:@"email"] && [dict objectForKey:@"username"])
-    {
-        NSDictionary* requestObjects = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                        [dict objectForKey:@"firstname"], @"firstname",
-                                        [dict objectForKey:@"lastname"], @"lastname",
-                                        [dict objectForKey:@"email"], @"email",
-                                        [dict objectForKey:@"username"], @"username",
-                                        [[User CurrentUser] access_token], @"token",
-                                        nil];
-        NSMutableURLRequest* request = [self createRequestAtPath:@"/people/register" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
-        NSHTTPURLResponse *serverResponse = nil;
-        NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
-        
-        if(serverResponse != nil)
-        {
-            if([serverResponse statusCode] == 201)
-            {
-                if(data_response != nil)
-                    *response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
-            }
-            else if([serverResponse statusCode] == 301)
-            {
-                //Create error object
-            }
-        }
-    }
-    else
-    {
-        //Create error object
-    }
-}
-
 +(void) addFace:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**)error{
                 NSLog(@"Inside Here 2");    
     //Check if the parameters exist.
@@ -132,7 +97,7 @@
     //Getting Server IP Address
     
     //[url_string appendString:[[FaceRecServer Server] URL]];
-    [url_string appendString:@"http://192.168.1.125:1337"];
+    [url_string appendString:[[FaceRecServer Server] url]];
     [url_string appendString:path];
     NSLog(@"%@",url_string);
     NSURL* url = [[NSURL alloc]initWithString:url_string];

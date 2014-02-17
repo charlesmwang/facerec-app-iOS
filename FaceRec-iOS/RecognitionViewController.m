@@ -63,7 +63,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 {
     [super viewDidLoad];
     //handshake
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:1337/"] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[[FaceRecServer Server] url]] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     
     [request setHTTPMethod: @"GET"];
     
@@ -73,7 +73,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     
 	// Do any additional setup after loading the view.
     _socket = [[SocketIO alloc] initWithDelegate:self];
-    [_socket connectToHost:@"192.168.1.125" onPort:1337];
+    _socket.useSecure = [[FaceRecServer Server] isUsingSSL];
+    [_socket connectToHost:[[FaceRecServer Server] ip_address] onPort:[[FaceRecServer Server] port]];
     //[socket sendMessage:@"hello world"];
     
     

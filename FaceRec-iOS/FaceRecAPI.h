@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Person.h"
 #import "User.h"
+#import "FaceRecServer.h"
 
 @interface FaceRecAPI : NSObject
 
 + (void) createAccount:(NSDictionary*) dict response:(NSDictionary**)response error:(NSError**) error;
-+ (void) addPerson:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**) error;
 + (void) addFace:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**)error;
 + (NSString*)imageToBase64:(UIImage*) image;
 
