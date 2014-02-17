@@ -195,7 +195,7 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
         if([_faceFeature trackingFrameCount] == 10)
         {
             NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                  [FaceRecAPI imageToBase64:[img imageRotatedByDegrees:90]], @"image",
+                                  [self imageToBase64:[img imageRotatedByDegrees:90]], @"image",
                                   @".jpg", @"imageformat",
                                   [[User CurrentUser] username], @"username",
                                   [NSString stringWithFormat:@"%d",[_faceFeature trackingID]],@"trackingID",
@@ -304,6 +304,11 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
     NSURLCredential *cred;
     cred = [NSURLCredential credentialForTrust:trust];
     [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
+}
+
+-(NSString*)imageToBase64:(UIImage*) image
+{
+    return [UIImageJPEGRepresentation(image, 1.0) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 
 @end

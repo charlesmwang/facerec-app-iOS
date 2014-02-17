@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
-#import "FaceRecAPI.h"
 #import "CaptureFaceViewController.h"
 #import "FaceRecServer.h"
 #import "User.h"

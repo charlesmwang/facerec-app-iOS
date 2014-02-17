@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Server List View Controller-->
+        <!--Server List View Controller - Servers-->
         <scene sceneID="zV4-Y5-FL2">
             <objects>
                 <tableViewController id="9Pn-p5-gcX" customClass="ServerListViewController" sceneMemberID="viewController">
@@ -27,7 +27,7 @@
                             <outlet property="delegate" destination="9Pn-p5-gcX" id="Kkh-9H-uU7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="iVB-xw-uUJ">
+                    <navigationItem key="navigationItem" title="Servers" id="iVB-xw-uUJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lUU-0k-r7Z">
                             <connections>
                                 <action selector="addServer:" destination="9Pn-p5-gcX" id="33n-o0-g9J"/>
@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="-250" y="1422"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login View Controller - Welcome!-->
         <scene sceneID="pS8-XP-8tB">
             <objects>
                 <viewController id="mG8-wW-ICz" customClass="LoginViewController" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JUd-Ml-I9L">
+                    <navigationItem key="navigationItem" title="Welcome!" id="JUd-Ml-I9L">
                         <barButtonItem key="rightBarButtonItem" title="Servers" id="G8r-ko-uYG">
                             <connections>
                                 <segue destination="9Pn-p5-gcX" kind="push" id="1yM-mU-ee2"/>
@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="-813" y="2068"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Sign Up View Controller - User Sign Up-->
         <scene sceneID="mcF-1V-fLm">
             <objects>
                 <viewController id="LTR-0q-LUR" customClass="SignUpViewController" sceneMemberID="viewController">
@@ -248,7 +248,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="huI-zc-Wbu"/>
+                    <navigationItem key="navigationItem" title="User Sign Up" id="huI-zc-Wbu"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="cornfirmPassword_field" destination="eIj-8y-E38" id="uKQ-gW-ZbL"/>

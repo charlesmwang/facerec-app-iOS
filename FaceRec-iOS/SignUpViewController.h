@@ -7,16 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FaceRecAPI.h"
+#import "FaceRecServer.h"
 
-@interface SignUpViewController : UIViewController <UITextFieldDelegate>
-{
-    IBOutlet UIScrollView *scroller;
-    IBOutlet UITextField *firstName_field;
-    IBOutlet UITextField *lastName_field;
-    IBOutlet UITextField *email_field;
-    IBOutlet UITextField *username_field;
-    IBOutlet UITextField *password_field;
-    IBOutlet UITextField *cornfirmPassword_field;
-}
+@interface SignUpViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDelegate, UIAlertViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scroller;
+@property (strong, nonatomic) IBOutlet UITextField *firstName_field;
+@property (strong, nonatomic) IBOutlet UITextField *lastName_field;
+@property (strong, nonatomic) IBOutlet UITextField *email_field;
+@property (strong, nonatomic) IBOutlet UITextField *username_field;
+@property (strong, nonatomic) IBOutlet UITextField *password_field;
+@property (strong, nonatomic) IBOutlet UITextField *cornfirmPassword_field;
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
+@property (strong, nonatomic) NSDictionary *jsonResponse;
+@property (strong, nonatomic) UIAlertView *alertView;
+@property (assign, nonatomic) BOOL isSuccess;
+
 @end

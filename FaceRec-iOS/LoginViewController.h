@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FaceRecAPI.h"
 #import "Person.h"
 #import "KeychainItemWrapper.h"
 #import "User.h"

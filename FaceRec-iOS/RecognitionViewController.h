@@ -11,7 +11,6 @@
 #import "SocketIOPacket.h"
 #import "SocketIO.h"
 #import "Person.h"
-#import "FaceRecAPI.h"
 #import "User.h"
 #import "FaceRecServer.h"
 

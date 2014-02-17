@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Person.h"
-#import "FaceRecAPI.h"
 #import "User.h"
+#import "FaceRecServer.h"
 
 @interface CaptureFaceViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate, NSURLConnectionDelegate>
 

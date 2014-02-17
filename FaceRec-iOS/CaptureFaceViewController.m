@@ -48,6 +48,7 @@
     _alertView = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image is sent to the server!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [_sendButton setEnabled:NO];
     self.title = [person fullname];
+    responseData = [[NSMutableData alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

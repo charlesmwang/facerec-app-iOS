@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     _keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"FaceRecApp" accessGroup:nil];
+    responseData = [[NSMutableData alloc] init];
 	// Do any additional setup after loading the view.
 }
 
