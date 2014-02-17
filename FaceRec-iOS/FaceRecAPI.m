@@ -51,59 +51,6 @@
     }
 }
 
-+(void) login:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**) error{
-    //Check if the parameters exist.
-    if([dict objectForKey:@"username"] && [dict objectForKey:@"password"])
-    {
-        NSDictionary* requestObjects = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                        [dict objectForKey:@"username"], @"username",
-                                        [dict objectForKey:@"password"], @"password",
-                                        nil];
-        NSMutableURLRequest* request = [self createRequestAtPath:@"/login" json:requestObjects HTTPMethod:@"POST" timeout:10.0];
-        NSHTTPURLResponse *serverResponse = nil;
-        NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
-        if(data_response != nil)
-            *response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
-
-        if(serverResponse != nil)
-        {
-            if([serverResponse statusCode] == 200)
-            {
-                *error = nil;
-                return;
-            }
-            else// if([serverResponse statusCode] == 301)
-            {
-                *error = [[NSError alloc] init];
-            }
-        }
-    }
-    else
-    {
-        //Create error object
-    }
-}
-
-+(void) logout:(NSDictionary*) response error:(NSError**) error{
-
-
-    NSMutableURLRequest* request = [self createRequestAtPath:@"/logout" json:nil HTTPMethod:@"GET" timeout:10.0];
-    NSHTTPURLResponse *serverResponse = nil;
-    NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
-
-    if(serverResponse != nil)
-    {
-        if([serverResponse statusCode] == 200)
-        {
-            
-        }
-        else if([serverResponse statusCode] == 301)
-        {
-            //Create error object
-        }
-    }
-}
-
 +(void) addPerson:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**) error{
     //Check if the parameters exist.
     if([dict objectForKey:@"firstname"] && [dict objectForKey:@"lastname"] &&

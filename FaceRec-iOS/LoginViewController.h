@@ -12,8 +12,12 @@
 #import "KeychainItemWrapper.h"
 #import "User.h"
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *username_field;
 @property (strong, nonatomic) IBOutlet UITextField *password_field;
 @property (strong, nonatomic) UIAlertView* alertView;
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
+@property (strong, nonatomic) NSDictionary *jsonResponse;
+@property (nonatomic) BOOL autologin;
 @end
