@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Person.h"
-#import "FaceRecAPI.h"
 #import "User.h"
+#import "FaceRecServer.h"
 
-@interface CaptureFaceViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate>
+@interface CaptureFaceViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate, NSURLConnectionDelegate>
 
 @property (nonatomic, strong) Person* person;
 @property (nonatomic, strong) UIAlertView* alertView;
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
+@property (strong, nonatomic) NSDictionary *jsonResponse;
 
 @end

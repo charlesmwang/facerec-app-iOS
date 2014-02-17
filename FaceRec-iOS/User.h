@@ -14,7 +14,7 @@
 + (User*) CurrentUser;
 - (id)initWithUsername: (NSString*)m_username token:m_token expiration:(NSString*) date;
 - (void) logout;
-
+- (void) none;
 @property (nonatomic, strong) NSString* username;
 @property (nonatomic, strong) NSString* access_token;
 @property (nonatomic, strong) NSDate* expiration;

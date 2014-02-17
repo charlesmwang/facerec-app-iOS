@@ -42,4 +42,6 @@ static User *CurrentUser = nil;
     self.username = nil;
     self.access_token = nil;
 }
+
+-(void) none{}
 @end

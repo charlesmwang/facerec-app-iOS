@@ -11,10 +11,10 @@
 #import "SocketIOPacket.h"
 #import "SocketIO.h"
 #import "Person.h"
-#import "FaceRecAPI.h"
 #import "User.h"
+#import "FaceRecServer.h"
 
-@interface RecognitionViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate, SocketIODelegate>
+@interface RecognitionViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate, SocketIODelegate, NSURLConnectionDelegate>
 @property (strong, nonatomic) IBOutlet UIView *preview;
 @property (nonatomic, strong) dispatch_queue_t videoDataOutputQueue;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
@@ -24,4 +24,6 @@
 @property (nonatomic, assign) BOOL isUsingFrontFacingCamera;
 @property (nonatomic, strong) NSArray *features;
 @property (nonatomic, strong) CIFaceFeature *faceFeature;
+@property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
+
 @end

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FaceRecAPI.h"
 #import "KeychainItemWrapper.h"
 #import "User.h"
+#import "FaceRecServer.h"
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController <NSURLConnectionDelegate>
+
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
+@property (strong, nonatomic) NSDictionary *jsonResponse;
 
 @end
