@@ -25,6 +25,7 @@
 @implementation CaptureFaceViewController
 
 @synthesize person, scrollView, cropBox;
+@synthesize responseData, headerResponse, jsonResponse;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -107,19 +108,25 @@
     UIGraphicsEndImageContext();
     cropBox.alpha = 0.2;
 
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          [self imageWithImage:screenshot scaledToSize:CGSizeMake(92, 112)], @"image", @".jpg", @"imageformat", [[User CurrentUser] username], @"username", person, @"person", nil];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                          [self imageToBase64:[self imageWithImage:screenshot scaledToSize:CGSizeMake(92, 112)]], @"image", @".jpg", @"imageformat", [[User CurrentUser] username], @"username", person.email, @"email", nil];
     
-    NSDictionary *response;
-    NSError *error;
     
-    [FaceRecAPI addFace:dict response:&response error:&error];
+    NSError* error;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                    [NSURL URLWithString:[[FaceRecServer Server] goToURL:@"/faces/add"]]];
+    request.timeoutInterval = 20.0;
+    request.HTTPMethod = @"POST";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    request.HTTPBody = jsonData;
+    [[[NSURLConnection alloc] initWithRequest:request delegate:self] start];
     
-    //If Success
-    [_alertView show];
-    
-    _imageView.image = nil;
-    [_sendButton setEnabled:NO];
+    //Clear Memory
+    [dict removeAllObjects];
+    dict = nil;
+    request = nil;
+    jsonData = nil;
     
 }
 
@@ -133,5 +140,58 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    headerResponse = (NSHTTPURLResponse*) response;
+    [responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    if([headerResponse statusCode] == 201)
+    {
+        [_alertView show];
+        _imageView.image = nil;
+        [_sendButton setEnabled:NO];
+    }
+    else
+    {
+        NSError *error;
+        jsonResponse = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+        if(jsonResponse)
+        {
+        }
+        else
+        {
+        }
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+}
+
+- (void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    SecTrustRef trust = challenge.protectionSpace.serverTrust;
+    NSURLCredential *cred;
+    cred = [NSURLCredential credentialForTrust:trust];
+    [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
+}
+
+-(NSString*)imageToBase64:(UIImage*) image
+{
+    return [UIImageJPEGRepresentation(image, 1.0) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
+
 
 @end
