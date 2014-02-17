@@ -86,46 +86,6 @@
     }
 }
 
-+(void) getPeopleList:(NSDictionary*) dict response:(NSArray**) response error:(NSError**) error{
-    //Check if the parameters exist.
-    if([dict objectForKey:@"username"])
-    {
-        NSMutableURLRequest* request = [self createRequestAtPath:
-                                        [NSString stringWithFormat:@"/people?%@=%@&%@=%@",
-                                         @"username",[dict objectForKey:@"username"],
-                                         @"token", [[User CurrentUser]access_token]]
-                                                            json:nil HTTPMethod:@"GET" timeout:10.0];
-        NSHTTPURLResponse *serverResponse = nil;
-        NSData *data_response = [NSURLConnection sendSynchronousRequest:request returningResponse:&serverResponse error:error];
-        
-        if(serverResponse != nil)
-        {
-            if([serverResponse statusCode] == 200)
-            {
-                if(data_response != nil)
-                {
-                    NSMutableArray *m_array = [[NSMutableArray alloc]init];
-                    NSArray *t_response = [NSJSONSerialization JSONObjectWithData:data_response options:0 error:error];
-                    for(NSDictionary *d in t_response)
-                    {
-                        [m_array addObject:[[Person alloc] initWithFirstName:[d objectForKey:@"firstname"] LastName:[d objectForKey:@"lastname"] Email:[d objectForKey:@"email"]]];
-                    }
-                    *response = [NSArray arrayWithArray:m_array];
-                    m_array = nil;
-                }
-            }
-            else if([serverResponse statusCode] == 301)
-            {
-                //Create error object
-            }
-        }
-    }
-    else
-    {
-        //Create error object
-    }
-}
-
 +(void) addFace:(NSDictionary*) dict response:(NSDictionary**) response error:(NSError**)error{
                 NSLog(@"Inside Here 2");    
     //Check if the parameters exist.

@@ -173,7 +173,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="306-ze-iFz" kind="push" id="cc1-ST-awx"/>
+                                    <action selector="registerPerson:" destination="Quf-MH-E1x" eventType="touchUpInside" id="a30-6E-zec"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -275,7 +275,7 @@
         <!--Capture Face View Controller-->
         <scene sceneID="8fz-Vz-Rjr">
             <objects>
-                <viewController id="306-ze-iFz" customClass="CaptureFaceViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CaptureMode" id="306-ze-iFz" customClass="CaptureFaceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3r0-Fc-xrC"/>
                         <viewControllerLayoutGuide type="bottom" id="4We-hy-CSO"/>
@@ -338,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHb-oG-7sn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="-432"/>
+            <point key="canvasLocation" x="1238" y="-556"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -346,7 +346,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="19z-cZ-5OU"/>
-    </inferredMetricsTieBreakers>
 </document>

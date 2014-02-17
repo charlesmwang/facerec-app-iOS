@@ -9,7 +9,7 @@
 #import "FaceRecServer.h"
 
 @implementation FaceRecServer
-@synthesize ip_address, port, URL;
+@synthesize ip_address, port, isUsingSSL, URL;
 
 static FaceRecServer *server = nil;
 
@@ -33,38 +33,27 @@ static FaceRecServer *server = nil;
     {
         server.ip_address = ipaddress;
         server.port = port_num;
-        server.URL = [NSString stringWithFormat:@"http://%@:%d",server.ip_address, server.port];
+        isUsingSSL = NO;
+        //server.URL = [NSString stringWithFormat:@"http://%@:%d",server.ip_address, server.port];
     }
     return server;
 }
 
-/*+(BOOL)test_connection
+- (NSString*) url
 {
-    if(server == nil)
-        return NO;
-    
-    NSMutableString* url_string = [[NSMutableString alloc]init];
-    
-    //Getting Server IP Address
-    [url_string appendString:[server URL]];
-    [url_string appendString:@"/utility/test_connection/"];
-    NSLog(@"%@",url_string);
-    NSURL* url = [[NSURL alloc]initWithString:url_string];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5.0];
-    [request setHTTPMethod:@"POST"];
-    NSError *error = nil;
-    
-    NSHTTPURLResponse *statusResponse = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&statusResponse error:&error];
-    
-    if(statusResponse != nil && [statusResponse statusCode] == 699)
-    {
-        return YES;
-    }
-    
-    return NO;
-}*/
+    if(isUsingSSL)
+        return [NSString stringWithFormat:@"https://%@:%d",server.ip_address, server.port];
+    else
+        return [NSString stringWithFormat:@"http://%@:%d",server.ip_address, server.port];
+}
+
+- (NSString*) goToURL: (NSString*) path
+{
+    if(isUsingSSL)
+        return [NSString stringWithFormat:@"https://%@:%d%@",server.ip_address, server.port, path];
+    else
+        return [NSString stringWithFormat:@"http://%@:%d%@",server.ip_address, server.port, path];
+}
 
 -(void) clear
 {

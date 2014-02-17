@@ -99,11 +99,17 @@
     Server *server = [servers objectAtIndex:indexPath.row];
     if([server.selected boolValue])
     {
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@:%d    [x]", server.ip_address, [server.port intValue]]];
+        if([server.secure boolValue])
+            [cell.textLabel setText:[NSString stringWithFormat:@"https://%@:%d [x]", server.ip_address, [server.port intValue]]];
+        else
+            [cell.textLabel setText:[NSString stringWithFormat:@"http://%@:%d [x]", server.ip_address, [server.port intValue]]];
     }
     else
     {
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@:%d", server.ip_address, [server.port intValue]]];
+        if([server.secure boolValue])
+            [cell.textLabel setText:[NSString stringWithFormat:@"https://%@:%d", server.ip_address, [server.port intValue]]];
+        else
+            [cell.textLabel setText:[NSString stringWithFormat:@"http://%@:%d", server.ip_address, [server.port intValue]]];
     }
     // Configure the cell...
     
@@ -129,6 +135,7 @@
             FaceRecServer *faceServer = [FaceRecServer Server];
             faceServer.ip_address = s.ip_address;//Remove Https
             faceServer.port = [s.port intValue];
+            faceServer.isUsingSSL = [s.secure boolValue];
         }
     }
     [self.tableView reloadData];
@@ -151,6 +158,7 @@
             FaceRecServer *faceServer = [FaceRecServer Server];
             faceServer.ip_address = s.ip_address;//Remove Https
             faceServer.port = [s.port intValue];
+            faceServer.isUsingSSL = [s.secure boolValue];
         }
         NSError *error = nil;
         //Permanently remove object
@@ -204,17 +212,41 @@
 {
     if(buttonIndex == 1)
     {
+        //Check if the textfield has http in the url
+        if([urlField.text rangeOfString:@"https://"].location == NSNotFound &&
+           [urlField.text rangeOfString:@"http://"].location == NSNotFound)
+        {
+            //Display Error Message;
+            return;
+        }
+        
         for(Server *s in servers)
         {
             s.selected = [NSNumber numberWithBool:NO];
         }
         
+        NSString *ip;
+        BOOL isHttps = NO;
+        
         Server *newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Server"
-                                                          inManagedObjectContext:self.managedObjectContext];
-        newEntry.ip_address = urlField.text;
+                                                         inManagedObjectContext:self.managedObjectContext];
+        
+        if([urlField.text rangeOfString:@"https://"].location == NSNotFound)
+        {
+            newEntry.secure = [NSNumber numberWithBool:NO];
+            newEntry.ip_address = [urlField.text substringFromIndex:7];
+            ip = [urlField.text substringFromIndex:7];
+        }
+        else
+        {
+            isHttps = YES;
+            newEntry.secure = [NSNumber numberWithBool:YES];
+            newEntry.ip_address = [urlField.text substringFromIndex:8];
+            ip = [urlField.text substringFromIndex:8];
+        }
+        
         newEntry.port = [NSNumber numberWithInt:[portField.text intValue]];
         newEntry.selected = [NSNumber numberWithBool:YES];
-        newEntry.secure = [NSNumber numberWithBool:YES];
         
         NSError *error;
         
@@ -224,8 +256,9 @@
         }
         
         FaceRecServer *faceServer = [FaceRecServer Server];
-        faceServer.ip_address = urlField.text;//Remove Https
+        faceServer.ip_address = ip;//Remove Https
         faceServer.port = [portField.text intValue];
+        faceServer.isUsingSSL = isHttps;
         
         urlField.text = @"https://";
         

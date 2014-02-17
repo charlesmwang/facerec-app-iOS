@@ -14,8 +14,12 @@
 - (id)initWithIpAddress: (NSString*)ipaddress port:(int)port_num;
 //+ (BOOL)test_connection;
 -(void) clear;
+- (NSString*) url;
+- (NSString*) goToURL: (NSString*) path;
 
 @property (nonatomic,strong) NSString* ip_address;
 @property (nonatomic,assign) int port;
 @property (nonatomic,strong) NSString* URL;
+@property (nonatomic,assign) BOOL isUsingSSL;
+
 @end

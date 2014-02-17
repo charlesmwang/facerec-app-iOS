@@ -16,6 +16,8 @@
 
 @synthesize people;
 
+@synthesize responseData, headerResponse, jsonResponse;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -23,6 +25,13 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    responseData = [[NSMutableData alloc] init];
+    people = [NSMutableArray new];
+    [self loadPeopleList];
 }
 
 - (void)viewDidLoad
@@ -34,8 +43,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self loadPeopleList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,12 +81,15 @@
 
 - (void) loadPeopleList
 {
-    NSError *error;
-    NSArray *array;
-    [FaceRecAPI getPeopleList:[[NSDictionary alloc] initWithObjectsAndKeys:[[User CurrentUser] username], @"username", nil] response:&array error:&error];
-    people = [array copy];
-    array = nil;
-    [self.tableView reloadData];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                    [NSURL URLWithString:[[FaceRecServer Server] goToURL:
+                                  [NSString stringWithFormat:@"/people?%@=%@&%@=%@",
+                                   @"username",[[User CurrentUser] username],
+                                   @"token", [[User CurrentUser]access_token]]]]];
+    request.timeoutInterval = 20.0;
+    request.HTTPMethod = @"GET";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:self] start];
 }
 
 /*
@@ -137,6 +147,51 @@
         CaptureFaceViewController *viewController = segue.destinationViewController;
         viewController.person = [people objectAtIndex:path.row];
     }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    headerResponse = (NSHTTPURLResponse*) response;
+    [responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    if([headerResponse statusCode] == 200)
+    {
+        NSError *error;
+        NSArray *t_response = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+        for(NSDictionary *d in t_response)
+        {
+            [people addObject:[[Person alloc] initWithFirstName:[d objectForKey:@"firstname"] LastName:[d objectForKey:@"lastname"] Email:[d objectForKey:@"email"]]];
+        }
+        t_response = nil;
+        [self.tableView reloadData];
+    }
+    else
+    {
+
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+
+}
+
+- (void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    SecTrustRef trust = challenge.protectionSpace.serverTrust;
+    NSURLCredential *cred;
+    cred = [NSURLCredential credentialForTrust:trust];
+    [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
 }
 
 

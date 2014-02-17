@@ -10,6 +10,7 @@
 #import "FaceRecAPI.h"
 #import "KeychainItemWrapper.h"
 #import "User.h"
+#import "FaceRecServer.h"
 
 @interface MainMenuViewController : UIViewController <NSURLConnectionDelegate>
 

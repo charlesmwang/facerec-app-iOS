@@ -40,7 +40,9 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)logout:(id)sender {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://192.168.1.125:1337/logout"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                    [NSURL URLWithString:[[FaceRecServer Server] goToURL:@"/logout"]]];
+    NSLog(@"%@",[[FaceRecServer Server] goToURL:@"/logout"]);
     request.timeoutInterval = 20.0;
     request.HTTPMethod = @"GET";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

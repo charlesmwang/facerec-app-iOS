@@ -22,5 +22,6 @@
 @property (strong, nonatomic) NSMutableData *responseData;
 @property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
 @property (strong, nonatomic) NSDictionary *jsonResponse;
+@property (strong, nonatomic) AppDelegate* appDelegate;
 @property (nonatomic) BOOL autologin;
 @end

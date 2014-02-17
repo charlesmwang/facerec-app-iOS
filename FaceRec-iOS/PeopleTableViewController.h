@@ -10,7 +10,14 @@
 #import "Person.h"
 #import "FaceRecAPI.h"
 #import "CaptureFaceViewController.h"
+#import "FaceRecServer.h"
+#import "User.h"
 
-@interface PeopleTableViewController : UITableViewController
-@property (nonatomic, strong) NSArray* people;
+@interface PeopleTableViewController : UITableViewController <NSURLConnectionDelegate>
+@property (nonatomic, strong) NSMutableArray* people;
+
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
+@property (strong, nonatomic) NSArray *jsonResponse;
+
 @end

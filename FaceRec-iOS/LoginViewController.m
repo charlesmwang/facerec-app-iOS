@@ -16,7 +16,7 @@
 
 @implementation LoginViewController
 
-@synthesize responseData, headerResponse, jsonResponse, autologin;
+@synthesize responseData, headerResponse, jsonResponse, autologin, appDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,16 +30,17 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     //Server Stuff
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate = [UIApplication sharedApplication].delegate;
     NSArray *servers = [appDelegate getServerList];
-    FaceRecServer *server = [[FaceRecServer alloc] init];
-    
+    FaceRecServer *server = [[FaceRecServer alloc] initWithIpAddress:@"" port:0];
+    server = [FaceRecServer Server];
     for( Server *s in servers)
     {
         if([s.selected boolValue])
         {
             server.ip_address = s.ip_address;
             server.port = [s.port intValue];
+            server.isUsingSSL = [s.secure boolValue];
         }
     }
     
@@ -74,7 +75,8 @@
 -(void) proceedLoginProcessWithUsername:(NSString*) username password:(NSString*) password{
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
     NSError* error;
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://192.168.1.125:1337/login"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                    [NSURL URLWithString:[[FaceRecServer Server] goToURL:@"/login/"]]];
     request.timeoutInterval = 20.0;
     request.HTTPMethod = @"POST";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -84,7 +86,17 @@
 }
 
 - (IBAction)login:(id)sender {
-    [self proceedLoginProcessWithUsername:_username_field.text password: _password_field.text];
+    NSLog(@"Server: %@:%d",[[FaceRecServer Server] ip_address], [[FaceRecServer Server] port]);
+    if([[appDelegate getServerList] count])
+    {
+        [self proceedLoginProcessWithUsername:_username_field.text password: _password_field.text];
+    }
+    else
+    {
+        _alertView.title = @"Failed to login!";
+        _alertView.message = @"Please create a server before login.";
+        [_alertView show];
+    }
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -154,7 +166,6 @@
 
 - (void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    NSLog(@"Checking Here");
     SecTrustRef trust = challenge.protectionSpace.serverTrust;
     NSURLCredential *cred;
     cred = [NSURLCredential credentialForTrust:trust];
