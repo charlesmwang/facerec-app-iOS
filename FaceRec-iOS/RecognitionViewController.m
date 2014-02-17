@@ -44,6 +44,10 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @interface RecognitionViewController ()
 
+@property CVPixelBufferRef pixelBuffer;
+@property CFDictionaryRef attachments;
+@property CIImage *ciImage;
+@property NSDictionary *imageOptions;
 @end
 
 @implementation RecognitionViewController
@@ -63,19 +67,12 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 {
     [super viewDidLoad];
     //handshake
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[[FaceRecServer Server] url]] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
-    
-    [request setHTTPMethod: @"GET"];
-    
-    NSError *requestError;
-    NSURLResponse *urlResponse = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    
-	// Do any additional setup after loading the view.
-    _socket = [[SocketIO alloc] initWithDelegate:self];
-    _socket.useSecure = [[FaceRecServer Server] isUsingSSL];
-    [_socket connectToHost:[[FaceRecServer Server] ip_address] onPort:[[FaceRecServer Server] port]];
-    //[socket sendMessage:@"hello world"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                    [NSURL URLWithString:[[FaceRecServer Server] url]]];
+    request.timeoutInterval = 20.0;
+    request.HTTPMethod = @"GET";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:self] start];
     
     
 	// Do any additional setup after loading the view.
@@ -120,15 +117,20 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    _attachments = nil;
+    _imageOptions = nil;
+    _pixelBuffer = nil;
+    NSLog(@"MEMORY LEAKING");
 }
 
 - (void) captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
-    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate);
-    CIImage *ciImage = [[CIImage alloc] initWithCVPixelBuffer:pixelBuffer options:(__bridge NSDictionary *)attachments];
-    
-    NSDictionary *imageOptions = nil;
+    _pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    _attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate);
+    _ciImage = [[CIImage alloc] initWithCVPixelBuffer:_pixelBuffer options:(__bridge NSDictionary *)_attachments];
+    _attachments = nil;
+    _imageOptions = nil;
+    _pixelBuffer = nil;
     UIDeviceOrientation curDeviceOrientation = [[UIDevice currentDevice] orientation];
     int exifOrientation;
     
@@ -165,19 +167,15 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
             break;
     }
     
-imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOrientation] forKey:CIDetectorImageOrientation];
-    UIImage *image= [self makeUIImageFromCIImage:ciImage];
-    features = [_faceDetector featuresInImage:ciImage options:imageOptions];
+_imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOrientation] forKey:CIDetectorImageOrientation];
+    features = [_faceDetector featuresInImage:_ciImage options:_imageOptions];
     if([features count] > 0)
     {
+        UIImage *image= [self makeUIImageFromCIImage:_ciImage];
         _faceFeature = [features objectAtIndex:0];
 
         CGRect modifiedFaceBounds = _faceFeature.bounds;
         modifiedFaceBounds.origin.y = image.size.height-_faceFeature.bounds.size.height-_faceFeature.bounds.origin.y;
-        
-        
-        //NSLog(@"%f %f %f %f",faceRect.size.width,faceRect.size.height,faceRect.origin.x,faceRect.origin.y);
-        //         CGRect modifiedFaceBounds = faceFeature.bounds;
         
         float xscale = 0.75;
         float xshift = (xscale - 1)/2 * modifiedFaceBounds.size.width;
@@ -196,7 +194,6 @@ imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOr
         
         if([_faceFeature trackingFrameCount] == 10)
         {
-            //Person *person = [[Person alloc]initWithFirstName:@"Charles" LastName:@"Wang" Email:@"charles@cornell.edu"];
             NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                   [FaceRecAPI imageToBase64:[img imageRotatedByDegrees:90]], @"image",
                                   @".jpg", @"imageformat",
@@ -204,13 +201,14 @@ imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOr
                                   [NSString stringWithFormat:@"%d",[_faceFeature trackingID]],@"trackingID",
                                   nil];
             [_socket sendEvent:@"recognize" withData:dict];
-            //NSDictionary *response;
-            //NSError *error;
-            
-            //[FaceRecAPI addFace:dict response:&response error:&error];
+            dict = nil;
         }
+        image = nil;
+        img = nil;
+        imageRef = nil;
         
     }
+    _ciImage = nil;
     
 }
 
@@ -254,28 +252,58 @@ imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOr
     NSLog(@"Here as well!");
 }
 
-- (IBAction)greeting:(id)sender {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:@"Charles" forKey:@"username"];
-    [dict setObject:@"From iOS App" forKey:@"image"];
-    [dict setObject:@".jpg" forKey:@"imageformat"];
-    
-    [_socket sendEvent:@"recognize" withData:dict];
-}
-
 -(UIImage*)makeUIImageFromCIImage:(CIImage*)ciImage
 {
 
-    // finally!
-    UIImage * returnImage;
-    
-    CGImageRef processedCGImage = [[CIContext contextWithOptions:nil] createCGImage:ciImage fromRect:[ciImage extent]];
-    
-    returnImage = [UIImage imageWithCGImage:processedCGImage];
-    CGImageRelease(processedCGImage);
-    
-    return returnImage;
+    @autoreleasepool {
+        // finally!
+        UIImage * returnImage;
+        
+        CGImageRef processedCGImage = [[CIContext contextWithOptions:nil] createCGImage:ciImage fromRect:[ciImage extent]];
+        
+        returnImage = [UIImage imageWithCGImage:processedCGImage];
+        CGImageRelease(processedCGImage);
+        
+        processedCGImage = nil;
+        
+        return returnImage;
+    }
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    _headerResponse = (NSHTTPURLResponse*) response;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+
+    if([_headerResponse statusCode])
+    {
+        _socket = [[SocketIO alloc] initWithDelegate:self];
+        _socket.useSecure = [[FaceRecServer Server] isUsingSSL];
+        [_socket connectToHost:[[FaceRecServer Server] ip_address] onPort:[[FaceRecServer Server] port]];
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+
+}
+
+- (void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    SecTrustRef trust = challenge.protectionSpace.serverTrust;
+    NSURLCredential *cred;
+    cred = [NSURLCredential credentialForTrust:trust];
+    [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
+}
 
 @end

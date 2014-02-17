@@ -33,7 +33,7 @@ static FaceRecServer *server = nil;
     {
         server.ip_address = ipaddress;
         server.port = port_num;
-        isUsingSSL = NO;
+        self.isUsingSSL = NO;
         //server.URL = [NSString stringWithFormat:@"http://%@:%d",server.ip_address, server.port];
     }
     return server;
