@@ -25,5 +25,7 @@
 @property (nonatomic, strong) NSArray *features;
 @property (nonatomic, strong) CIFaceFeature *faceFeature;
 @property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
+@property (strong, nonatomic) NSMutableDictionary *recognized;
+@property (assign, nonatomic) int faceCounter;
 
 @end

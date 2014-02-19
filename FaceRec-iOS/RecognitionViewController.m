@@ -52,7 +52,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @implementation RecognitionViewController
 
-@synthesize isUsingFrontFacingCamera, features;
+@synthesize isUsingFrontFacingCamera, features, recognized;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -101,6 +101,9 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     isUsingFrontFacingCamera = YES;
     
     [session startRunning];
+    
+    recognized = [[NSMutableDictionary alloc] init];
+    _faceCounter = 0;
 }
 
 - (AVCaptureDevice *)frontCamera {
@@ -169,13 +172,25 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     
 _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOrientation] forKey:CIDetectorImageOrientation];
     features = [_faceDetector featuresInImage:_ciImage options:_imageOptions];
-    if([features count] > 0)
+    if([features count] != _faceCounter)
+    {
+        dispatch_sync(dispatch_get_main_queue(), ^void{
+        for(NSString* trackid in recognized)
+        {
+            UILabel *label = [recognized objectForKey:trackid];
+            if(label)
+            {
+                [label removeFromSuperview];
+            }
+        }});
+        [recognized removeAllObjects];
+    }
+    for(CIFaceFeature *f in features)
     {
         UIImage *image= [self makeUIImageFromCIImage:_ciImage];
-        _faceFeature = [features objectAtIndex:0];
-
-        CGRect modifiedFaceBounds = _faceFeature.bounds;
-        modifiedFaceBounds.origin.y = image.size.height-_faceFeature.bounds.size.height-_faceFeature.bounds.origin.y;
+        
+        CGRect modifiedFaceBounds = f.bounds;
+        modifiedFaceBounds.origin.y = image.size.height-f.bounds.size.height-f.bounds.origin.y;
         
         float xscale = 0.75;
         float xshift = (xscale - 1)/2 * modifiedFaceBounds.size.width;
@@ -187,26 +202,37 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
         modifiedFaceBounds.size.height *= yscale;
         modifiedFaceBounds.origin.y -= yshift;
         
-        
-        CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], modifiedFaceBounds);
-        UIImage *img = [UIImage imageWithCGImage:imageRef];
-        CGImageRelease(imageRef);
-        
-        if([_faceFeature trackingFrameCount] == 10)
+        if([features count] != _faceCounter)
         {
+            CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], modifiedFaceBounds);
+            UIImage *img = [UIImage imageWithCGImage:imageRef];
+            CGImageRelease(imageRef);
+            
+            
             NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                   [self imageToBase64:[img imageRotatedByDegrees:90]], @"image",
                                   @".jpg", @"imageformat",
                                   [[User CurrentUser] username], @"username",
-                                  [NSString stringWithFormat:@"%d",[_faceFeature trackingID]],@"trackingID",
+                                  [NSString stringWithFormat:@"%d",[f trackingID]],@"trackingID",
                                   nil];
             [_socket sendEvent:@"recognize" withData:dict];
             dict = nil;
+            img = nil;
+            imageRef = nil;
         }
+        //Need to perform this in the main to update GUI stuff
+        dispatch_sync(dispatch_get_main_queue(), ^void{
+            UILabel *label = [recognized objectForKey:[NSString stringWithFormat:@"%d",[f trackingID]]];
+            if(label)
+            {
+                [label setCenter:CGPointMake(f.bounds.origin.x, f.bounds.origin.y)];
+            }
+        });
         image = nil;
-        img = nil;
-        imageRef = nil;
-        
+    }
+    if([features count] != _faceCounter)
+    {
+        _faceCounter = [features count];
     }
     _ciImage = nil;
     
@@ -237,13 +263,16 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
     }
     else if([packet.name isEqualToString:@"identified"])
     {
-        NSLog(@"HERE");
         NSArray *data = [[packet dataAsJSON] objectForKey:@"args"];
-        NSLog(@"%@",[data objectAtIndex:0]);
         NSDictionary *json = [data objectAtIndex:0];
-        
-        NSLog(@"Name %@",[json objectForKey:@"name"]);
-        self.title = [json objectForKey:@"name"];
+//        self.title = [json objectForKey:@"name"];
+        //Ideally Create a Person Object
+//        dispatch_sync(dispatch_get_main_queue(), ^void{
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(170, 146, 200, 100)];
+            label.text = [json objectForKey:@"name"];
+            [self.preview addSubview:label];
+            [recognized setObject:label forKey:[json objectForKey:@"trackingID"]];
+//        });
     }
 }
 
@@ -311,4 +340,8 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
     return [UIImageJPEGRepresentation(image, 1.0) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [_socket disconnect];
+}
 @end

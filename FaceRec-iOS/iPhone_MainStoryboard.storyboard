@@ -243,7 +243,7 @@
             </objects>
             <point key="canvasLocation" x="229" y="-403"/>
         </scene>
-        <!--Recognition View Controller-->
+        <!--Recognition View Controller - Face Recognition-->
         <scene sceneID="E94-Xe-Ks2">
             <objects>
                 <viewController id="uLb-Q9-EyW" customClass="RecognitionViewController" sceneMemberID="viewController">
@@ -263,7 +263,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aHR-mh-Pbw"/>
+                    <navigationItem key="navigationItem" title="Face Recognition" id="aHR-mh-Pbw"/>
                     <connections>
                         <outlet property="preview" destination="gFw-aR-Psa" id="k5a-Ow-JYN"/>
                     </connections>
