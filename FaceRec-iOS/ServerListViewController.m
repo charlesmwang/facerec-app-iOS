@@ -28,48 +28,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    //1
-    appDelegate = [UIApplication sharedApplication].delegate;
-    //2
-    self.managedObjectContext = appDelegate.managedObjectContext;
-    
-    
-    message = [[UIAlertView alloc] initWithTitle:@"Enter Server Details"
-                                                      message:nil
-                                                     delegate:self
-                                            cancelButtonTitle:@"Cancel"
-                                            otherButtonTitles:@"Add", nil];
-    
-    [message setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
-    urlField = [message textFieldAtIndex:0];
-    urlField.placeholder=@"URL";
-    [urlField setText:@"https://"];
-    
-    portField = [message textFieldAtIndex:1];
-    [portField setSecureTextEntry:NO];
-    portField.placeholder=@"Port";
-    [portField setText:@"80"];
-    
-    servers = [[NSMutableArray alloc] initWithArray:[appDelegate getServerList]];
-    
-    for( Server *s in servers)
-    {
-        if([s.selected boolValue])
-        {
+}
 
-        }
-    }
-    
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    servers = [[NSMutableArray alloc] initWithArray:[appDelegate getServerList]];
+    [self refreshServerList];
+}
+
+-(void) refreshServerList
+{
+    [servers removeAllObjects];
+    [servers addObjectsFromArray:[appDelegate getServerList]];
     [self.tableView reloadData];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,22 +68,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ServerCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     Server *server = [servers objectAtIndex:indexPath.row];
+    UIImageView *imageView = (UIImageView*)[cell viewWithTag:1];
+    UILabel *name_label = (UILabel*)[cell viewWithTag:2];
+    UILabel *address_label = (UILabel*)[cell viewWithTag:3];
+    name_label.text = server.name;
     if([server.selected boolValue])
     {
+        imageView.hidden = NO;
         if([server.secure boolValue])
-            [cell.textLabel setText:[NSString stringWithFormat:@"https://%@:%d [x]", server.ip_address, [server.port intValue]]];
+            [address_label setText:[NSString stringWithFormat:@"https://%@:%d", server.ip_address, [server.port intValue]]];
         else
-            [cell.textLabel setText:[NSString stringWithFormat:@"http://%@:%d [x]", server.ip_address, [server.port intValue]]];
+            [address_label setText:[NSString stringWithFormat:@"http://%@:%d", server.ip_address, [server.port intValue]]];
     }
     else
     {
+        imageView.hidden = YES;
         if([server.secure boolValue])
-            [cell.textLabel setText:[NSString stringWithFormat:@"https://%@:%d", server.ip_address, [server.port intValue]]];
+            [address_label setText:[NSString stringWithFormat:@"https://%@:%d", server.ip_address, [server.port intValue]]];
         else
-            [cell.textLabel setText:[NSString stringWithFormat:@"http://%@:%d", server.ip_address, [server.port intValue]]];
+            [address_label setText:[NSString stringWithFormat:@"http://%@:%d", server.ip_address, [server.port intValue]]];
     }
     // Configure the cell...
     
@@ -203,6 +183,12 @@
 }
 
  */
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
 - (IBAction)addServer:(id)sender {
     
     [message show];
@@ -245,6 +231,7 @@
             ip = [urlField.text substringFromIndex:8];
         }
         
+        newEntry.name = @"Test Entry";
         newEntry.port = [NSNumber numberWithInt:[portField.text intValue]];
         newEntry.selected = [NSNumber numberWithBool:YES];
         

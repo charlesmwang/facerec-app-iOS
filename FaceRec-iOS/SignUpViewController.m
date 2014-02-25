@@ -33,7 +33,7 @@
     alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     isSuccess = NO;
     responseData = [[NSMutableData alloc] init];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -131,18 +131,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 9;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    if(indexPath.row == 0 || indexPath.row == 8)//White Space Cell
-    {
-        static NSString *CellIdentifier = @"WhiteSpaceCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    }
-    else if(indexPath.row == 7) //Button
+    if(indexPath.row == 6) //Button
     {
         static NSString *CellIdentifier = @"SignUpCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -154,52 +149,52 @@
         static NSString *CellIdentifier = @"FieldCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         UILabel* field_label = (UILabel*)[cell viewWithTag:1];
-        if(indexPath.row == 1) //First Name
+        if(indexPath.row == 0) //First Name
         {
             field_label.text = @"First Name";
             firstName_field = (UITextField*)[cell viewWithTag:2];
-            firstName_field.placeholder = field_label.text;
+            //firstName_field.placeholder = field_label.text;
             firstName_field.delegate = self;
             firstName_field.returnKeyType = UIReturnKeyNext;
         }
-        else if(indexPath.row == 2) //Last Name
+        else if(indexPath.row == 1) //Last Name
         {
             field_label.text = @"Last Name";
             lastName_field = (UITextField*)[cell viewWithTag:2];
-            lastName_field.placeholder = field_label.text;
+            //lastName_field.placeholder = field_label.text;
             lastName_field.delegate = self;
             lastName_field.returnKeyType = UIReturnKeyNext;
         }
-        else if(indexPath.row == 3) //Email
+        else if(indexPath.row == 2) //Email
         {
             field_label.text = @"Email";
             email_field = (UITextField*)[cell viewWithTag:2];
-            email_field.placeholder = field_label.text;
+            //email_field.placeholder = field_label.text;
             email_field.delegate = self;
             email_field.returnKeyType = UIReturnKeyNext;
         }
-        else if(indexPath.row == 4) //Username
+        else if(indexPath.row == 3) //Username
         {
             field_label.text = @"Username";
             username_field = (UITextField*)[cell viewWithTag:2];
-            username_field.placeholder = field_label.text;
+            //username_field.placeholder = field_label.text;
             username_field.delegate = self;
             username_field.returnKeyType = UIReturnKeyNext;
         }
-        else if(indexPath.row == 5) //Password
+        else if(indexPath.row == 4) //Password
         {
             field_label.text = @"Password";
             password_field = (UITextField*)[cell viewWithTag:2];
-            password_field.placeholder = field_label.text;
+            //password_field.placeholder = field_label.text;
             password_field.delegate = self;
             password_field.secureTextEntry = YES;
             password_field.returnKeyType = UIReturnKeyNext;
         }
-        else if(indexPath.row == 6) //Password Confirmation
+        else if(indexPath.row == 5) //Password Confirmation
         {
-            field_label.text = @"Confirmation Password";
+            field_label.text = @"Confirmation";
             confirmPassword_field = (UITextField*)[cell viewWithTag:2];
-            confirmPassword_field.placeholder = field_label.text;
+            //confirmPassword_field.placeholder = field_label.text;
             confirmPassword_field.delegate = self;
             confirmPassword_field.secureTextEntry = YES;
             confirmPassword_field.returnKeyType = UIReturnKeyDone;
@@ -211,16 +206,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0 || indexPath.row == 8)
-    {
-        return 30;
-    }
-    else if(indexPath.row == 7)
-    {
-        return 60;
-    }
-    return 95;
-        
+    return 60;        
 }
 
 /*

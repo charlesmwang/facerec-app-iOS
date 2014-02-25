@@ -24,4 +24,6 @@
 @property (nonatomic,strong) UITextField *portField;
 
 @property (nonatomic,strong) AppDelegate *appDelegate;
+
+-(void) refreshServerList;
 @end

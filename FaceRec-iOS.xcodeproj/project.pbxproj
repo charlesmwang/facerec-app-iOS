@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1601A90618BC65D50082B146 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A90518BC65D50082B146 /* SignUpViewController.m */; };
+		1601A90918BC7A040082B146 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A90818BC7A040082B146 /* Server.m */; };
+		1601A90C18BC80F70082B146 /* ServerCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A90B18BC80F70082B146 /* ServerCreationViewController.m */; };
 		166FD81818B1D61000A3FE12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FD81718B1D61000A3FE12 /* CoreData.framework */; };
 		166FD81E18B1D75800A3FE12 /* FaceRec.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 166FD81C18B1D75800A3FE12 /* FaceRec.xcdatamodeld */; };
 		166FD82118B1D7E800A3FE12 /* ServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FD82018B1D7E800A3FE12 /* ServerListViewController.m */; };
-		166FD82418B1DF7100A3FE12 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FD82318B1DF7100A3FE12 /* Server.m */; };
 		1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1699A0A4189A048800B56929 /* RecognitionViewController.m */; };
 		1699A0A7189A050000B56929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A6189A050000B56929 /* AVFoundation.framework */; };
 		1699A0A9189A0AC900B56929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A8189A0AC900B56929 /* QuartzCore.framework */; };
@@ -66,12 +67,14 @@
 /* Begin PBXFileReference section */
 		1601A90418BC65D50082B146 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		1601A90518BC65D50082B146 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		1601A90718BC7A040082B146 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		1601A90818BC7A040082B146 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		1601A90A18BC80F70082B146 /* ServerCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCreationViewController.h; sourceTree = "<group>"; };
+		1601A90B18BC80F70082B146 /* ServerCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCreationViewController.m; sourceTree = "<group>"; };
 		166FD81718B1D61000A3FE12 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		166FD81D18B1D75800A3FE12 /* FaceRec.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FaceRec.xcdatamodel; sourceTree = "<group>"; };
 		166FD81F18B1D7E800A3FE12 /* ServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerListViewController.h; sourceTree = "<group>"; };
 		166FD82018B1D7E800A3FE12 /* ServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerListViewController.m; sourceTree = "<group>"; };
-		166FD82218B1DF7100A3FE12 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
-		166FD82318B1DF7100A3FE12 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		1699A0A3189A048800B56929 /* RecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognitionViewController.h; sourceTree = "<group>"; };
 		1699A0A4189A048800B56929 /* RecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognitionViewController.m; sourceTree = "<group>"; };
 		1699A0A6189A050000B56929 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -212,9 +215,11 @@
 			children = (
 				56F1726518998CB8000D990C /* socket.IO-objc */,
 				56F1726C18998DFB000D990C /* SocketRocket */,
+				1601A90A18BC80F70082B146 /* ServerCreationViewController.h */,
+				1601A90B18BC80F70082B146 /* ServerCreationViewController.m */,
+				1601A90718BC7A040082B146 /* Server.h */,
+				1601A90818BC7A040082B146 /* Server.m */,
 				166FD81C18B1D75800A3FE12 /* FaceRec.xcdatamodeld */,
-				166FD82218B1DF7100A3FE12 /* Server.h */,
-				166FD82318B1DF7100A3FE12 /* Server.m */,
 				166FD81F18B1D7E800A3FE12 /* ServerListViewController.h */,
 				166FD82018B1D7E800A3FE12 /* ServerListViewController.m */,
 				56F1722A18998477000D990C /* AppDelegate.h */,
@@ -410,6 +415,7 @@
 				56F1728718998F06000D990C /* SocketIO.m in Sources */,
 				1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */,
 				16BC8CFA18AFB732007D74E5 /* CaptureFaceViewController.m in Sources */,
+				1601A90C18BC80F70082B146 /* ServerCreationViewController.m in Sources */,
 				56F1722818998477000D990C /* main.m in Sources */,
 				56F1722C18998477000D990C /* AppDelegate.m in Sources */,
 				56F1727418998E68000D990C /* base64.c in Sources */,
@@ -417,6 +423,7 @@
 				16BC8D0818B02652007D74E5 /* Person.m in Sources */,
 				16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */,
 				56F1727718998E68000D990C /* NSData+SRB64Additions.m in Sources */,
+				1601A90918BC7A040082B146 /* Server.m in Sources */,
 				1601A90618BC65D50082B146 /* SignUpViewController.m in Sources */,
 				16BC8D1918B160A2007D74E5 /* User.m in Sources */,
 				56F172DC1899964D000D990C /* FaceRecServer.m in Sources */,
@@ -425,7 +432,6 @@
 				166FD81E18B1D75800A3FE12 /* FaceRec.xcdatamodeld in Sources */,
 				56F1728918998F06000D990C /* SocketIOJSONSerialization.m in Sources */,
 				56F1728B18998F06000D990C /* SocketIOPacket.m in Sources */,
-				166FD82418B1DF7100A3FE12 /* Server.m in Sources */,
 				16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */,
 				16BC8D1318B157F7007D74E5 /* KeychainItemWrapper.m in Sources */,
 				56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */,

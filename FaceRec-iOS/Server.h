@@ -2,7 +2,7 @@
 //  Server.h
 //  FaceRec-iOS
 //
-//  Created by Charles Wang on 2/17/14.
+//  Created by Charles Wang on 2/25/14.
 //  Copyright (c) 2014 Charles Wang. All rights reserved.
 //
 
@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSNumber * port;
 @property (nonatomic, retain) NSNumber * secure;
 @property (nonatomic, retain) NSNumber * selected;
+@property (nonatomic, retain) NSString * name;
 
 @end
