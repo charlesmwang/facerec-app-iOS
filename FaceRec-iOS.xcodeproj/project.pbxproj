@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1601A90618BC65D50082B146 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A90518BC65D50082B146 /* SignUpViewController.m */; };
 		166FD81818B1D61000A3FE12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FD81718B1D61000A3FE12 /* CoreData.framework */; };
 		166FD81E18B1D75800A3FE12 /* FaceRec.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 166FD81C18B1D75800A3FE12 /* FaceRec.xcdatamodeld */; };
 		166FD82118B1D7E800A3FE12 /* ServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FD82018B1D7E800A3FE12 /* ServerListViewController.m */; };
@@ -16,7 +17,6 @@
 		1699A0A9189A0AC900B56929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A8189A0AC900B56929 /* QuartzCore.framework */; };
 		16BC8CFA18AFB732007D74E5 /* CaptureFaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */; };
 		16BC8CFD18AFD8A9007D74E5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */; };
-		16BC8D0018AFD8BA007D74E5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CFF18AFD8BA007D74E5 /* SignUpViewController.m */; };
 		16BC8D0518AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */; };
 		16BC8D0818B02652007D74E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0718B02652007D74E5 /* Person.m */; };
 		16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */; };
@@ -64,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1601A90418BC65D50082B146 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		1601A90518BC65D50082B146 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		166FD81718B1D61000A3FE12 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		166FD81D18B1D75800A3FE12 /* FaceRec.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FaceRec.xcdatamodel; sourceTree = "<group>"; };
 		166FD81F18B1D7E800A3FE12 /* ServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerListViewController.h; sourceTree = "<group>"; };
@@ -78,8 +80,6 @@
 		16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureFaceViewController.m; sourceTree = "<group>"; };
 		16BC8CFB18AFD8A9007D74E5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		16BC8CFE18AFD8BA007D74E5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		16BC8CFF18AFD8BA007D74E5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_MainStoryboard.storyboard; sourceTree = "<group>"; };
 		16BC8D0618B02652007D74E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		16BC8D0718B02652007D74E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
@@ -233,8 +233,8 @@
 				16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */,
 				16BC8D0918B02C8B007D74E5 /* PeopleTableViewController.h */,
 				16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */,
-				16BC8CFE18AFD8BA007D74E5 /* SignUpViewController.h */,
-				16BC8CFF18AFD8BA007D74E5 /* SignUpViewController.m */,
+				1601A90418BC65D50082B146 /* SignUpViewController.h */,
+				1601A90518BC65D50082B146 /* SignUpViewController.m */,
 				16BC8CFB18AFD8A9007D74E5 /* LoginViewController.h */,
 				16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */,
 				16BC8D1718B160A2007D74E5 /* User.h */,
@@ -415,9 +415,9 @@
 				56F1727418998E68000D990C /* base64.c in Sources */,
 				16BC8D1618B15D3B007D74E5 /* MainMenuViewController.m in Sources */,
 				16BC8D0818B02652007D74E5 /* Person.m in Sources */,
-				16BC8D0018AFD8BA007D74E5 /* SignUpViewController.m in Sources */,
 				16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */,
 				56F1727718998E68000D990C /* NSData+SRB64Additions.m in Sources */,
+				1601A90618BC65D50082B146 /* SignUpViewController.m in Sources */,
 				16BC8D1918B160A2007D74E5 /* User.m in Sources */,
 				56F172DC1899964D000D990C /* FaceRecServer.m in Sources */,
 				56F1727A18998E68000D990C /* SRWebSocket.m in Sources */,
