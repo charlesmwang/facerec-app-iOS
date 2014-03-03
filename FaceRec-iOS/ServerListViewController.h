@@ -10,14 +10,14 @@
 #import "AppDelegate.h"
 #import "Server.h"
 #import "FaceRecServer.h"
+#import "ServerInfoButton.h"
+#import "ServerCreationViewController.h"
 
-@interface ServerListViewController : UITableViewController <UIAlertViewDelegate>
+@interface ServerListViewController : UITableViewController
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @property (nonatomic,strong) NSMutableArray* servers;
-
-@property (nonatomic,strong) UIAlertView *message;
 
 @property (nonatomic,strong) UITextField *urlField;
 

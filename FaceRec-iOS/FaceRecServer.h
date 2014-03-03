@@ -21,5 +21,6 @@
 @property (nonatomic,assign) int port;
 @property (nonatomic,strong) NSString* URL;
 @property (nonatomic,assign) BOOL isUsingSSL;
+@property (nonatomic,strong) NSString* name;
 
 @end

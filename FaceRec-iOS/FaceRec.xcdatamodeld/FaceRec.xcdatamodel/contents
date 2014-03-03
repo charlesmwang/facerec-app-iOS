@@ -3,7 +3,7 @@
     <entity name="Server" representedClassName="Server" syncable="YES">
         <attribute name="ip_address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="port" optional="YES" attributeType="Integer 16" defaultValueString="80" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="Integer 32" defaultValueString="80" syncable="YES"/>
         <attribute name="secure" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="selected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>

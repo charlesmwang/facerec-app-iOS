@@ -22,5 +22,6 @@
 @property (strong, nonatomic) UISwitch *defaultSwitch;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic,strong) AppDelegate *appDelegate;
-
+@property (assign, nonatomic) BOOL editMode;
+@property (assign, nonatomic) Server *serverToEdit;
 @end

@@ -9,7 +9,7 @@
 #import "FaceRecServer.h"
 
 @implementation FaceRecServer
-@synthesize ip_address, port, isUsingSSL, URL;
+@synthesize ip_address, port, isUsingSSL, URL, name;
 
 static FaceRecServer *server = nil;
 
@@ -34,6 +34,7 @@ static FaceRecServer *server = nil;
         server.ip_address = ipaddress;
         server.port = port_num;
         self.isUsingSSL = NO;
+        server.name = @"";
         //server.URL = [NSString stringWithFormat:@"http://%@:%d",server.ip_address, server.port];
     }
     return server;

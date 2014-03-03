@@ -14,7 +14,7 @@
 
 @implementation ServerCreationViewController
 
-@synthesize nameField, hostField, sslSwitch, defaultSwitch, portField, appDelegate, managedObjectContext;
+@synthesize nameField, hostField, sslSwitch, defaultSwitch, portField, appDelegate, managedObjectContext, editMode, serverToEdit;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,7 +34,8 @@
     //2
     self.managedObjectContext = appDelegate.managedObjectContext;
     
-    portField.text = @"443";
+    if(!editMode)
+        portField.text = @"443";
     
 }
 
@@ -55,6 +56,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if(editMode)
+        return 4;
     return 5;
 }
 
@@ -67,12 +70,16 @@
         static NSString *CellIdentifier = @"NameCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         nameField = (UITextField*)[cell viewWithTag:2];
+        if(editMode)
+            nameField.text = serverToEdit.name;
     }
     else if(indexPath.row == 1)
     {
         static NSString *CellIdentifier = @"HostCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         hostField = (UITextField*)[cell viewWithTag:2];
+        if(editMode)
+            hostField.text = serverToEdit.ip_address;
     }
     else if(indexPath.row == 2)
     {
@@ -80,14 +87,18 @@
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         sslSwitch = (UISwitch*)[cell viewWithTag:2];
         [sslSwitch addTarget:self action:@selector(sslSwitchValueChanged) forControlEvents:UIControlEventValueChanged];
+        if(editMode)
+            [sslSwitch setOn:[serverToEdit.secure boolValue]];
     }
     else if(indexPath.row == 3)
     {
         static NSString *CellIdentifier = @"PortCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         portField = (UITextField*)[cell viewWithTag:2];
+        if(editMode)
+            portField.text = [NSString stringWithFormat:@"%d",[serverToEdit.port intValue]];
     }
-    else if(indexPath.row == 4)
+    else if(indexPath.row == 4) //In Edit Mode this will not be called
     {
         static NSString *CellIdentifier = @"DefaultCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -171,51 +182,77 @@
 
 -(IBAction)addServer:(id)sender
 {
-
-    
-    Server *newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Server"
-                                                     inManagedObjectContext:self.managedObjectContext];
-    
-
-    if([sslSwitch isOn])
+    if(!editMode)
+    {
+        Server *newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Server"
+                                                         inManagedObjectContext:self.managedObjectContext];
+        
+        
+        if([sslSwitch isOn])
+        {
+            NSMutableArray* array = [[NSMutableArray alloc] initWithArray:[appDelegate getServerList]];
+            
+            for(Server *s in array)
+            {
+                s.selected = [NSNumber numberWithBool:NO];
+            }
+            
+        }
+        
+        newEntry.secure = [NSNumber numberWithBool:[sslSwitch isOn]];
+        newEntry.ip_address = hostField.text;
+        newEntry.name = nameField.text;
+        newEntry.port = [NSNumber numberWithInt:[portField.text intValue]];
+        newEntry.selected = [NSNumber numberWithBool:[sslSwitch isOn]];
+        
+        
+        NSError *error;
+        
+        if(![self.managedObjectContext save:&error])
+        {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        
+        FaceRecServer *faceServer = [FaceRecServer Server];
+        faceServer.ip_address = hostField.text;
+        faceServer.port = [portField.text intValue];
+        faceServer.isUsingSSL = [sslSwitch isOn];
+        faceServer.name = [nameField text];
+        
+        hostField.text = @"";
+        nameField.text = @"";
+        portField.text = @"";
+        [defaultSwitch setOn:YES];
+        [sslSwitch setOn:YES];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
     {
         NSMutableArray* array = [[NSMutableArray alloc] initWithArray:[appDelegate getServerList]];
         
         for(Server *s in array)
         {
-            s.selected = [NSNumber numberWithBool:NO];
+            if([s isEqual:serverToEdit])
+            {
+                NSLog(@"%d",[portField.text intValue]);
+                s.name = nameField.text;
+                s.port = [NSNumber numberWithInt:[portField.text intValue]];
+                s.ip_address = hostField.text;
+                s.secure = [NSNumber numberWithBool:[sslSwitch isOn]];
+                NSLog(@"Found");
+            }
         }
         
+        NSError *error;
+        
+        if(![self.managedObjectContext save:&error])
+        {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    newEntry.secure = [NSNumber numberWithBool:[sslSwitch isOn]];
-    newEntry.ip_address = hostField.text;
-    newEntry.name = nameField.text;
-    newEntry.port = [NSNumber numberWithInt:[portField.text intValue]];
-    newEntry.selected = [NSNumber numberWithBool:[sslSwitch isOn]];
-    
-    
-    NSError *error;
-    
-    if(![self.managedObjectContext save:&error])
-    {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    
-    FaceRecServer *faceServer = [FaceRecServer Server];
-    faceServer.ip_address = hostField.text;
-    faceServer.port = [portField.text intValue];
-    faceServer.isUsingSSL = [sslSwitch isOn];
-    
-    hostField.text = @"";
-    nameField.text = @"";
-    portField.text = @"";
-    [defaultSwitch setOn:YES];
-    [sslSwitch setOn:YES];
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    
 }
 
 @end

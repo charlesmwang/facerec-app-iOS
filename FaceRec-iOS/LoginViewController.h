@@ -22,5 +22,7 @@
 @property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
 @property (strong, nonatomic) NSDictionary *jsonResponse;
 @property (strong, nonatomic) AppDelegate* appDelegate;
+@property (strong, nonatomic) IBOutlet UILabel *serverAddressLabel;
 @property (nonatomic) BOOL autologin;
+@property (strong, nonatomic) IBOutlet UILabel *serverNameLabel;
 @end

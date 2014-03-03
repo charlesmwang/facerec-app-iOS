@@ -41,6 +41,7 @@
             server.ip_address = s.ip_address;
             server.port = [s.port intValue];
             server.isUsingSSL = [s.secure boolValue];
+            server.name = s.name;
         }
     }
     
@@ -59,6 +60,12 @@
     _alertView = [[UIAlertView alloc]initWithTitle:@"Title" message:@"Message" delegate:nil cancelButtonTitle:@"OK:" otherButtonTitles: nil];
     
     responseData = [[NSMutableData alloc] init];
+    
+    if(server)
+    {
+        _serverAddressLabel.text = server.url;
+        _serverNameLabel.text = server.name;
+    }
 }
 
 - (void)viewDidLoad
