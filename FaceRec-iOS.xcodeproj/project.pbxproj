@@ -26,6 +26,8 @@
 		16BC8D1318B157F7007D74E5 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */; };
 		16BC8D1618B15D3B007D74E5 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */; };
 		16BC8D1918B160A2007D74E5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1818B160A2007D74E5 /* User.m */; };
+		16DB558918F712F500D2127E /* PersonLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DB558818F712F500D2127E /* PersonLabel.m */; };
+		16DB558C18F717FE00D2127E /* RecognizedPersonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DB558B18F717FE00D2127E /* RecognizedPersonTableViewController.m */; };
 		56F1721C18998477000D990C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721B18998477000D990C /* Foundation.framework */; };
 		56F1721E18998477000D990C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721D18998477000D990C /* CoreGraphics.framework */; };
 		56F1722018998477000D990C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721F18998477000D990C /* UIKit.framework */; };
@@ -99,6 +101,10 @@
 		16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		16BC8D1718B160A2007D74E5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		16BC8D1818B160A2007D74E5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		16DB558718F712F500D2127E /* PersonLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonLabel.h; sourceTree = "<group>"; };
+		16DB558818F712F500D2127E /* PersonLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonLabel.m; sourceTree = "<group>"; };
+		16DB558A18F717FE00D2127E /* RecognizedPersonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizedPersonTableViewController.h; sourceTree = "<group>"; };
+		16DB558B18F717FE00D2127E /* RecognizedPersonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizedPersonTableViewController.m; sourceTree = "<group>"; };
 		56F1721818998477000D990C /* FaceRec-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FaceRec-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F1721B18998477000D990C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56F1721D18998477000D990C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -233,10 +239,14 @@
 				16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */,
 				16BC8D0618B02652007D74E5 /* Person.h */,
 				16BC8D0718B02652007D74E5 /* Person.m */,
+				16DB558718F712F500D2127E /* PersonLabel.h */,
+				16DB558818F712F500D2127E /* PersonLabel.m */,
 				56F172DA1899964D000D990C /* FaceRecServer.h */,
 				56F172DB1899964D000D990C /* FaceRecServer.m */,
 				56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */,
 				16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */,
+				16DB558A18F717FE00D2127E /* RecognizedPersonTableViewController.h */,
+				16DB558B18F717FE00D2127E /* RecognizedPersonTableViewController.m */,
 				16BC8D1418B15D3B007D74E5 /* MainMenuViewController.h */,
 				16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */,
 				16BC8D0C18B035C7007D74E5 /* PersonRegisterViewController.h */,
@@ -435,11 +445,13 @@
 				56F172DC1899964D000D990C /* FaceRecServer.m in Sources */,
 				56F1727A18998E68000D990C /* SRWebSocket.m in Sources */,
 				166FD82118B1D7E800A3FE12 /* ServerListViewController.m in Sources */,
+				16DB558918F712F500D2127E /* PersonLabel.m in Sources */,
 				166FD81E18B1D75800A3FE12 /* FaceRec.xcdatamodeld in Sources */,
 				56F1728918998F06000D990C /* SocketIOJSONSerialization.m in Sources */,
 				56F1728B18998F06000D990C /* SocketIOPacket.m in Sources */,
 				16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */,
 				16BC8D1318B157F7007D74E5 /* KeychainItemWrapper.m in Sources */,
+				16DB558C18F717FE00D2127E /* RecognizedPersonTableViewController.m in Sources */,
 				56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */,
 				56F1729018998F06000D990C /* SocketIOTransportXHR.m in Sources */,
 				16BC8CFD18AFD8A9007D74E5 /* LoginViewController.m in Sources */,

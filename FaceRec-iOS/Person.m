@@ -10,7 +10,7 @@
 
 @implementation Person
 
-@synthesize firstName, lastName, email, trackingID;
+@synthesize firstName, lastName, email, trackingID, services;
 
 -(id) initWithFirstName:(NSString*) firstname LastName:(NSString*) lastname Email:(NSString*) Email
 {

@@ -89,9 +89,6 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"iPhone_LoginStoryboard" bundle:nil];
-    UIViewController *viewController = [loginStoryboard instantiateInitialViewController];
-    [self presentViewController:viewController animated:YES completion:nil];
     // The request has failed for some reason!
     // Check the error var
 }

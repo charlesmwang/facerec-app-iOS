@@ -1,6 +1,5 @@
 # Xcode
 .DS_Store
-Build
 */Build/*
 */build/*
 *.pbxuser

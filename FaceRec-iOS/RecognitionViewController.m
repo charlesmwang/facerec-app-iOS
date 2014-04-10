@@ -63,9 +63,9 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     return self;
 }
 
-- (void)viewDidLoad
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     //handshake
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
                                     [NSURL URLWithString:[[FaceRecServer Server] url]]];
@@ -73,6 +73,18 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     request.HTTPMethod = @"GET";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [[[NSURLConnection alloc] initWithRequest:request delegate:self] start];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    //handshake
+    /*NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                    [NSURL URLWithString:[[FaceRecServer Server] url]]];
+    request.timeoutInterval = 20.0;
+    request.HTTPMethod = @"GET";
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:self] start];*/
     
     
 	// Do any additional setup after loading the view.
@@ -177,7 +189,7 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
         dispatch_sync(dispatch_get_main_queue(), ^void{
         for(NSString* trackid in recognized)
         {
-            UILabel *label = [recognized objectForKey:trackid];
+            PersonLabel *label = [recognized objectForKey:trackid];
             if(label)
             {
                 [label removeFromSuperview];
@@ -222,7 +234,7 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
         }
         //Need to perform this in the main to update GUI stuff
         dispatch_sync(dispatch_get_main_queue(), ^void{
-            UILabel *label = [recognized objectForKey:[NSString stringWithFormat:@"%d",[f trackingID]]];
+            PersonLabel *label = [recognized objectForKey:[NSString stringWithFormat:@"%d",[f trackingID]]];
             if(label)
             {
                 [label setCenter:CGPointMake(f.bounds.origin.x, f.bounds.origin.y)];
@@ -268,10 +280,22 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
 //        self.title = [json objectForKey:@"name"];
         //Ideally Create a Person Object
 //        dispatch_sync(dispatch_get_main_queue(), ^void{
-            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(170, 146, 200, 100)];
+        
+            PersonLabel* label = [[PersonLabel alloc] initWithFrame:CGRectMake(170, 146, 200, 100)];
+            Person *p = [Person new];
+            p.firstName = [json objectForKey:@"firstname"];
+            p.lastName = [json objectForKey:@"lastname"];
+            p.email = [json objectForKey:@"email"];
+            if([json objectForKey:@"Facebook"]){
+                [p.services setObject:[json objectForKey:@"Facebook"] forKey:@"Facebook"];
+            }
+            label.person = p;
             label.text = [json objectForKey:@"name"];
             [self.preview addSubview:label];
             [recognized setObject:label forKey:[json objectForKey:@"trackingID"]];
+            label.userInteractionEnabled = YES;
+            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
+        [label addGestureRecognizer:tapGesture];
 //        });
     }
 }
@@ -343,5 +367,24 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
 -(void) viewWillDisappear:(BOOL)animated
 {
     [_socket disconnect];
+}
+
+- (void)labelTapped:(UIGestureRecognizer*)recognizer
+{
+    // Only respond if we're in the ended state (similar to touchupinside)
+    if( [recognizer state] == UIGestureRecognizerStateEnded ) {
+        // the label that was tapped
+        PersonLabel* label = (PersonLabel*)[recognizer view];
+        NSLog(@"%@",label.person.firstName);
+        // do things with your label
+        
+        NSString * storyboardName = @"iPhone_MainStoryboard";
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+        RecognizedPersonTableViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"RecognizedPerson"];
+        vc.person = label.person;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
+    }
 }
 @end
