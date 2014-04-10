@@ -222,7 +222,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="306-ze-iFz" kind="push" identifier="TableView" id="19z-cZ-5OU"/>
+                                    <segue destination="41J-jj-mcw" kind="push" identifier="TableView" id="5VT-Z5-QVT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -272,6 +272,35 @@
             </objects>
             <point key="canvasLocation" x="229" y="479"/>
         </scene>
+        <!--Capture Face View Controller - Capturing Face-->
+        <scene sceneID="hrS-rd-me4">
+            <objects>
+                <viewController storyboardIdentifier="CaptureMode" id="41J-jj-mcw" customClass="CaptureFaceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7YN-hs-tcB"/>
+                        <viewControllerLayoutGuide type="bottom" id="lkU-gb-3uS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PpK-qO-b4q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ml4-uO-GHp">
+                                <rect key="frame" x="0.0" y="39" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Capturing Face" id="UJW-UW-uYW"/>
+                    <connections>
+                        <outlet property="preview" destination="ml4-uO-GHp" id="mHy-dN-Cx8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQL-Tc-PPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="-297"/>
+        </scene>
         <!--Recognized Person Table View Controller-->
         <scene sceneID="SdL-Ax-X2l">
             <objects>
@@ -300,73 +329,34 @@
             </objects>
             <point key="canvasLocation" x="1067" y="447"/>
         </scene>
-        <!--Capture Face View Controller-->
-        <scene sceneID="8fz-Vz-Rjr">
+        <!--Recognition View Controller - Face Recognition-->
+        <scene sceneID="GBY-d3-rP2">
             <objects>
-                <viewController storyboardIdentifier="CaptureMode" id="306-ze-iFz" customClass="CaptureFaceViewController" sceneMemberID="viewController">
+                <viewController id="M58-AT-WAN" customClass="RecognitionViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3r0-Fc-xrC"/>
-                        <viewControllerLayoutGuide type="bottom" id="4We-hy-CSO"/>
+                        <viewControllerLayoutGuide type="top" id="0xk-Ni-MTK"/>
+                        <viewControllerLayoutGuide type="bottom" id="oXl-cy-4wp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cmh-UL-ODE">
+                    <view key="view" contentMode="scaleToFill" id="rCT-ZM-34b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="30" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-VZ-aEB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="523"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4xV-ui-e2g">
+                                <rect key="frame" x="0.0" y="39" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACN-Yy-VzM">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="523"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <connections>
-                                    <outlet property="delegate" destination="306-ze-iFz" id="ZZ9-Y4-8JP"/>
-                                </connections>
-                            </scrollView>
-                            <view userInteractionEnabled="NO" alpha="0.20000000000000007" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uA5-CI-qbo">
-                                <rect key="frame" x="22" y="100" width="276" height="336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1D-uG-TH3">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Library" id="Ruf-z9-79a">
-                                        <connections>
-                                            <action selector="openPhotoLibrary:" destination="306-ze-iFz" id="KRn-2e-xFL"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="204" style="plain" systemItem="fixedSpace" id="Pw9-GZ-WLi"/>
-                                    <barButtonItem systemItem="camera" id="1bI-TB-mlr">
-                                        <connections>
-                                            <action selector="cameraMode:" destination="306-ze-iFz" id="MX0-d2-7VI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BDC-r5-n2c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="j4W-3J-lxE">
-                            <connections>
-                                <action selector="sendFaceImage:" destination="306-ze-iFz" id="cwh-7D-ysv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Face Recognition" id="nbq-B4-gRF"/>
                     <connections>
-                        <outlet property="cropBox" destination="uA5-CI-qbo" id="15d-RP-iUy"/>
-                        <outlet property="imageView" destination="ACN-Yy-VzM" id="Atw-CK-bTs"/>
-                        <outlet property="scrollView" destination="cxs-VZ-aEB" id="DnB-wN-q8e"/>
-                        <outlet property="sendButton" destination="j4W-3J-lxE" id="5Ay-cg-F7y"/>
+                        <outlet property="preview" destination="4xV-ui-e2g" id="OyU-CL-MOK"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sHb-oG-7sn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gK-Ce-jld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="-556"/>
+            <point key="canvasLocation" x="229" y="479"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
