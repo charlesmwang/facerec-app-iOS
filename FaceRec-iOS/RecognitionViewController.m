@@ -276,23 +276,44 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
     else if([packet.name isEqualToString:@"identified"])
     {
         NSArray *data = [[packet dataAsJSON] objectForKey:@"args"];
-        NSDictionary *json = [data objectAtIndex:0];
         
-        PersonLabel* label = [[PersonLabel alloc] initWithFrame:CGRectMake(170, 146, 200, 100)];
-        Person *p = [Person new];
-        p.firstName = [json objectForKey:@"firstname"];
-        p.lastName = [json objectForKey:@"lastname"];
-        p.email = [json objectForKey:@"email"];
-        if([json objectForKey:@"Facebook"]){
-            [p.services setObject:[json objectForKey:@"Facebook"] forKey:@"Facebook"];
+        if(data && data.count > 0)
+        {
+            NSDictionary *json = [data objectAtIndex:0];
+            
+            if(!json)
+                return;
+            
+            if([json objectForKey:@"trackingID"])
+            {
+                PersonLabel *label = [recognized objectForKey:[json objectForKey:@"trackingID"]];
+                if(!label)
+                {
+                    label = [[PersonLabel alloc] initWithFrame:CGRectMake(170, 146, 200, 100)];
+                }
+                Person *p = [Person new];
+                p.firstName = [json objectForKey:@"firstname"];
+                p.lastName = [json objectForKey:@"lastname"];
+                p.email = [json objectForKey:@"email"];
+                if([json objectForKey:@"Facebook"]){
+                    [p.services setObject:[json objectForKey:@"Facebook"] forKey:@"Facebook"];
+                }
+                label.person = p;
+                label.text = [json objectForKey:@"name"];
+                if(![self.preview.subviews containsObject:label])
+                {
+                    NSLog(@"New Label");
+                    [self.preview addSubview:label];
+                }
+                [recognized setObject:label forKey:[json objectForKey:@"trackingID"]];
+                label.userInteractionEnabled = YES;
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
+                [label addGestureRecognizer:tapGesture];
+                
+            }
         }
-        label.person = p;
-        label.text = [json objectForKey:@"name"];
-        [self.preview addSubview:label];
-        [recognized setObject:label forKey:[json objectForKey:@"trackingID"]];
-        label.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
-        [label addGestureRecognizer:tapGesture];
+        
+        
     }
     else if([packet.name isEqualToString:@"RecError"])
     {
@@ -300,13 +321,31 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
         if(data && data.count > 0)
         {
             NSDictionary *json = [data objectAtIndex:0];
+            
+            if(!json)
+                return;
+            
             if([json objectForKey:@"trackingID"])
             {
-                PersonLabel* label = [[PersonLabel alloc] initWithFrame:CGRectMake(170, 146, 200, 100)];
-                label.text = @"Cannot Find You!";
-                [self.preview addSubview:label];
-                [recognized setObject:label forKey:[json objectForKey:@"trackingID"]];
-                label.userInteractionEnabled = NO;
+                PersonLabel* label = [recognized objectForKey:[json objectForKey:@"trackingID"]];
+                if(label)
+                {
+                    label.text = @"Cannot Find You!";
+                    if(![self.preview.subviews containsObject:label])
+                    {
+                        [self.preview addSubview:label];
+                    }
+                    [recognized setObject:label forKey:[json objectForKey:@"trackingID"]];
+                    label.userInteractionEnabled = NO;
+                }
+                else
+                {
+                    label = [[PersonLabel alloc] initWithFrame:CGRectMake(170, 146, 200, 100)];
+                    label.text = @"Cannot Find You!";
+                    [self.preview addSubview:label];
+                    [recognized setObject:label forKey:[json objectForKey:@"trackingID"]];
+                    label.userInteractionEnabled = NO;
+                }
             }
         }
     }
