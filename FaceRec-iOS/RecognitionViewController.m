@@ -197,6 +197,13 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
         }});
         [recognized removeAllObjects];
     }
+    CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
+    CGRect clap = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
+    CGSize parentFrameSize = [_preview frame].size;
+    NSString *gravity = [_previewLayer videoGravity];
+    CGRect previewBox = [RecognitionViewController videoPreviewBoxForGravity:gravity
+                                                                 frameSize:parentFrameSize
+                                                              apertureSize:clap.size];
     for(CIFaceFeature *f in features)
     {
         UIImage *image= [self makeUIImageFromCIImage:_ciImage];
@@ -237,7 +244,24 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
             PersonLabel *label = [recognized objectForKey:[NSString stringWithFormat:@"%d",[f trackingID]]];
             if(label)
             {
-                [label setCenter:CGPointMake(f.bounds.origin.x, f.bounds.origin.y)];
+                CGRect faceRect = [f bounds];
+                
+                // flip preview width and height
+                CGFloat temp = faceRect.size.width;
+                faceRect.size.width = faceRect.size.height;
+                faceRect.size.height = temp;
+                temp = faceRect.origin.x;
+                faceRect.origin.x = faceRect.origin.y;
+                faceRect.origin.y = temp;
+                // scale coordinates so they fit in the preview box, which may be scaled
+                CGFloat widthScaleBy = previewBox.size.width / clap.size.height;
+                CGFloat heightScaleBy = previewBox.size.height / clap.size.width;
+                faceRect.size.width *= widthScaleBy;
+                faceRect.size.height *= heightScaleBy;
+                faceRect.origin.x *= widthScaleBy;
+                faceRect.origin.y *= heightScaleBy;
+                faceRect = CGRectOffset(faceRect, previewBox.origin.x + previewBox.size.width - faceRect.size.width - (faceRect.origin.x * 2) +100, previewBox.origin.y - 90);
+                [label setCenter:CGPointMake(faceRect.origin.x, faceRect.origin.y)];
             }
         });
         image = nil;
@@ -438,4 +462,48 @@ _imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifO
         
     }
 }
+
+// find where the video box is positioned within the preview layer based on the video size and gravity
++ (CGRect)videoPreviewBoxForGravity:(NSString *)gravity frameSize:(CGSize)frameSize apertureSize:(CGSize)apertureSize
+{
+    CGFloat apertureRatio = apertureSize.height / apertureSize.width;
+    CGFloat viewRatio = frameSize.width / frameSize.height;
+    
+    CGSize size = CGSizeZero;
+    if ([gravity isEqualToString:AVLayerVideoGravityResizeAspectFill]) {
+        if (viewRatio > apertureRatio) {
+            size.width = frameSize.width;
+            size.height = apertureSize.width * (frameSize.width / apertureSize.height);
+        } else {
+            size.width = apertureSize.height * (frameSize.height / apertureSize.width);
+            size.height = frameSize.height;
+        }
+    } else if ([gravity isEqualToString:AVLayerVideoGravityResizeAspect]) {
+        if (viewRatio > apertureRatio) {
+            size.width = apertureSize.height * (frameSize.height / apertureSize.width);
+            size.height = frameSize.height;
+        } else {
+            size.width = frameSize.width;
+            size.height = apertureSize.width * (frameSize.width / apertureSize.height);
+        }
+    } else if ([gravity isEqualToString:AVLayerVideoGravityResize]) {
+        size.width = frameSize.width;
+        size.height = frameSize.height;
+    }
+    
+    CGRect videoBox;
+    videoBox.size = size;
+    if (size.width < frameSize.width)
+        videoBox.origin.x = (frameSize.width - size.width) / 2;
+    else
+        videoBox.origin.x = (size.width - frameSize.width) / 2;
+    
+    if ( size.height < frameSize.height )
+        videoBox.origin.y = (frameSize.height - size.height) / 2;
+    else
+        videoBox.origin.y = (size.height - frameSize.height) / 2;
+    
+    return videoBox;
+}
+
 @end
