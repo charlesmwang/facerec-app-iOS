@@ -21,6 +21,7 @@
         self.lastName = lastname;
         self.email = Email;
         self.trackingID = -1;
+        self.sortUser = [firstName uppercaseString];
     }
     return self;
 }
@@ -29,5 +30,10 @@
 {
     return [NSString stringWithFormat:@"%@ %@",self.firstName, self.lastName];
 }
+
+-(NSComparisonResult) compare:(Person*) other {
+    return [[other.firstName uppercaseString] compare:[other.firstName uppercaseString]];
+}
+
 
 @end

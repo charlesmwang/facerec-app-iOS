@@ -13,10 +13,14 @@
 #import "User.h"
 
 @interface PeopleTableViewController : UITableViewController <NSURLConnectionDelegate>
-@property (nonatomic, strong) NSMutableArray* people;
+//@property (nonatomic, strong) NSMutableArray* people;
 
 @property (strong, nonatomic) NSMutableData *responseData;
 @property (strong, nonatomic) NSHTTPURLResponse *headerResponse;
 @property (strong, nonatomic) NSArray *jsonResponse;
+
+@property (strong, nonatomic) NSArray *alphabetArray;
+
+@property (strong, nonatomic) NSMutableDictionary *people;
 
 @end

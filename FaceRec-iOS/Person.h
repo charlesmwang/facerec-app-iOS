@@ -15,6 +15,8 @@
 @property (nonatomic, assign) int trackingID;
 @property (nonatomic, strong) NSMutableDictionary* services;
 
+@property (nonatomic, strong) NSString* sortUser;
+
 -(id) initWithFirstName:(NSString*) firstname LastName:(NSString*) lastname Email:(NSString*) Email;
 -(NSString*) fullname;
 @end
