@@ -30,14 +30,20 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     responseData = [[NSMutableData alloc] init];
-    people = [NSMutableArray new];
+    people = [NSMutableDictionary new];
+    self.alphabetArray = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",@"#123"];
+    for(NSString* firstChar in self.alphabetArray)
+    {
+        [people setObject:[NSMutableArray new] forKey:[firstChar uppercaseString]];
+    }
     [self loadPeopleList];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -56,14 +62,19 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 27;
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.alphabetArray objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    return [people count];
+    return [(NSMutableArray*)[people objectForKey:[self.alphabetArray objectAtIndex:section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,8 +85,9 @@
     
     //cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",[[people objectAtIndex:indexPath.row] fullname],[[people objectAtIndex:indexPath.row] email]];
     // Configure the cell...
-    ((UILabel*)[cell viewWithTag:1]).text = [[people objectAtIndex:indexPath.row] fullname];
-    ((UILabel*)[cell viewWithTag:2]).text = [[people objectAtIndex:indexPath.row] email];
+    NSMutableArray* subPeople = (NSMutableArray*)[people objectForKey:[self.alphabetArray objectAtIndex:indexPath.section]];
+    ((UILabel*)[cell viewWithTag:1]).text = [[subPeople objectAtIndex:indexPath.row] fullname];
+    ((UILabel*)[cell viewWithTag:2]).text = [[subPeople objectAtIndex:indexPath.row] email];
     return cell;
 }
 
@@ -143,9 +155,10 @@
     }
     else if([segue.identifier isEqualToString:@"TableView"])
     {
-        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CaptureFaceViewController *viewController = segue.destinationViewController;
-        viewController.person = [people objectAtIndex:path.row];
+        NSMutableArray* subPeople = (NSMutableArray*)[people objectForKey:[self.alphabetArray objectAtIndex:indexPath.section]];
+        viewController.person = [subPeople objectAtIndex:indexPath.row];
     }
 }
 
@@ -171,9 +184,32 @@
         NSArray *t_response = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
         for(NSDictionary *d in t_response)
         {
-            [people addObject:[[Person alloc] initWithFirstName:[d objectForKey:@"firstname"] LastName:[d objectForKey:@"lastname"] Email:[d objectForKey:@"email"]]];
+            NSString* firstName = [d objectForKey:@"firstname"];
+            NSString* firstChar = [[firstName substringToIndex:1] uppercaseString];
+            NSLog(@"firstChar %@",firstChar);
+            if([people objectForKey:[firstChar uppercaseString]])
+            {
+                [(NSMutableArray*)[people objectForKey:[firstChar uppercaseString]] addObject:[[Person alloc] initWithFirstName:[d objectForKey:@"firstname"] LastName:[d objectForKey:@"lastname"] Email:[d objectForKey:@"email"]]];
+            }
+            else
+            {
+                [(NSMutableArray*)[people objectForKey:@"#123"] addObject:[[Person alloc] initWithFirstName:[d objectForKey:@"firstname"] LastName:[d objectForKey:@"lastname"] Email:[d objectForKey:@"email"]]];
+            }
         }
         t_response = nil;
+        
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortUser"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        
+        for(NSString* pKey in self.people.allKeys)
+        {
+            NSMutableArray* arr = (NSMutableArray*)[self.people objectForKey:pKey];
+            NSArray *sortedArray;
+            sortedArray = [arr sortedArrayUsingDescriptors:sortDescriptors];
+            [self.people setObject:[NSMutableArray arrayWithArray:sortedArray] forKey:pKey];
+        }
         [self.tableView reloadData];
     }
     else

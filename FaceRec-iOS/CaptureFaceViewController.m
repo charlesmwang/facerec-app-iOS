@@ -204,7 +204,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         
         self.fcounter++;
         
-        if(self.fcounter % 30 == 0)
+        if(self.fcounter % 15 == 0)
         {
             [self sendFaceImage:[img imageRotatedByDegrees:90]];
             self.picTaken++;
@@ -213,25 +213,25 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
             });
             self.fcounter = 0;
         }
-        else if(self.fcounter % 24 == 0)
+        else if(self.fcounter % 12 == 0)
         {
             dispatch_sync(dispatch_get_main_queue(), ^void{
                 self.title = [NSString stringWithFormat:@"Capturing in 1"];
             });
         }
-        else if(self.fcounter % 18 == 0)
+        else if(self.fcounter % 9 == 0)
         {
             dispatch_sync(dispatch_get_main_queue(), ^void{
                 self.title = [NSString stringWithFormat:@"Capturing in 2"];
             });
         }
-        else if(self.fcounter % 12 == 0)
+        else if(self.fcounter % 6 == 0)
         {
             dispatch_sync(dispatch_get_main_queue(), ^void{
                 self.title = [NSString stringWithFormat:@"Capturing in 3"];
             });
         }
-        else if(self.fcounter % 6 == 0)
+        else if(self.fcounter % 3 == 0)
         {
             dispatch_sync(dispatch_get_main_queue(), ^void{
                 self.title = [NSString stringWithFormat:@"Capturing in 4"];
