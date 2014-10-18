@@ -7,27 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1601A90618BC65D50082B146 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A90518BC65D50082B146 /* SignUpViewController.m */; };
-		1601A90C18BC80F70082B146 /* ServerCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A90B18BC80F70082B146 /* ServerCreationViewController.m */; };
-		1601A90F18BD69870082B146 /* ServerInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A90E18BD69870082B146 /* ServerInfoButton.m */; };
-		1601A91218BD70EB0082B146 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 1601A91118BD70EB0082B146 /* Server.m */; };
+		161378D11A107AA400F9D988 /* UIImage+RotationMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 161378D01A107AA400F9D988 /* UIImage+RotationMethods.m */; };
+		161378D31A107B2600F9D988 /* FRCaptureFace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161378D21A107B2600F9D988 /* FRCaptureFace.storyboard */; };
+		161378D61A107B5800F9D988 /* FRFaceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 161378D51A107B5800F9D988 /* FRFaceUtilities.m */; };
+		161378DA1A107BB500F9D988 /* FRCaptureFaceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 161378D91A107BB500F9D988 /* FRCaptureFaceUtilities.m */; };
+		1624B4BD1A0F7D5C00144F24 /* FRNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624B4BC1A0F7D5C00144F24 /* FRNetworkOperation.m */; };
+		1624B4C11A0F813A00144F24 /* FRMainMenuNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624B4C01A0F813A00144F24 /* FRMainMenuNetworkOperation.m */; };
+		1624B4C41A0FCF7100144F24 /* FRSignUpNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624B4C31A0FCF7100144F24 /* FRSignUpNetworkOperation.m */; };
+		1624B4C61A0FEF0C00144F24 /* FRPerson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1624B4C51A0FEF0C00144F24 /* FRPerson.storyboard */; };
+		1624B4C91A0FEF2A00144F24 /* FRPersonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624B4C81A0FEF2A00144F24 /* FRPersonUtilities.m */; };
+		1624B4CC1A0FF42A00144F24 /* FRPersonNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624B4CB1A0FF42A00144F24 /* FRPersonNetworkOperation.m */; };
+		1624B4CE1A1003D600144F24 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1624B4CD1A1003D600144F24 /* Launch Screen.xib */; };
+		1624B4D21A10562B00144F24 /* FRPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624B4D01A10562B00144F24 /* FRPersonTableViewCell.m */; };
+		1624B4D31A10562B00144F24 /* FRPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1624B4D11A10562B00144F24 /* FRPersonTableViewCell.xib */; };
+		1652E5BA1A11F7AC00F8D3D9 /* UIImage+ConversionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1652E5B91A11F7AC00F8D3D9 /* UIImage+ConversionHelper.m */; };
+		1652E5BD1A136A4F00F8D3D9 /* FRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1652E5BC1A136A4F00F8D3D9 /* FRCameraViewController.m */; };
 		166FD81818B1D61000A3FE12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FD81718B1D61000A3FE12 /* CoreData.framework */; };
 		166FD81E18B1D75800A3FE12 /* FaceRec.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 166FD81C18B1D75800A3FE12 /* FaceRec.xcdatamodeld */; };
-		166FD82118B1D7E800A3FE12 /* ServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FD82018B1D7E800A3FE12 /* ServerListViewController.m */; };
-		1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1699A0A4189A048800B56929 /* RecognitionViewController.m */; };
+		1685472A1A0DEA34005751CC /* FRServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547201A0DEA34005751CC /* FRServerListViewController.m */; };
+		1685472B1A0DEA34005751CC /* FRServerCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547211A0DEA34005751CC /* FRServerCreationViewController.m */; };
+		1685472C1A0DEA34005751CC /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547231A0DEA34005751CC /* Server.m */; };
+		1685472D1A0DEA34005751CC /* ServerInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547261A0DEA34005751CC /* ServerInfoButton.m */; };
+		1685472E1A0DEA34005751CC /* FaceRecServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547291A0DEA34005751CC /* FaceRecServer.m */; };
+		168547341A0DEA43005751CC /* FRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685472F1A0DEA43005751CC /* FRLoginViewController.m */; };
+		168547351A0DEA43005751CC /* FRLoginUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547311A0DEA43005751CC /* FRLoginUtilities.m */; };
+		168547361A0DEA43005751CC /* FRLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168547321A0DEA43005751CC /* FRLogin.storyboard */; };
+		168547391A0DEA56005751CC /* FRSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547371A0DEA56005751CC /* FRSignUpViewController.m */; };
+		168547411A0DEAB6005751CC /* FRPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685473D1A0DEAB6005751CC /* FRPeopleViewController.m */; };
+		168547421A0DEAB6005751CC /* FRPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685473F1A0DEAB6005751CC /* FRPerson.m */; };
+		168547431A0DEAB6005751CC /* FRPersonRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547401A0DEAB6005751CC /* FRPersonRegistrationViewController.m */; };
+		168547471A0DEF1A005751CC /* FRCaptureFaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547451A0DEF1A005751CC /* FRCaptureFaceViewController.m */; };
+		1685474D1A0DEFB4005751CC /* FRRecognizedPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547491A0DEFB4005751CC /* FRRecognizedPersonViewController.m */; };
+		1685474E1A0DEFB4005751CC /* FRRecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685474A1A0DEFB4005751CC /* FRRecognitionViewController.m */; };
+		168547521A0DF032005751CC /* FRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547511A0DF032005751CC /* FRUser.m */; };
+		168547561A0DF07D005751CC /* FRMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547541A0DF07D005751CC /* FRMainMenuViewController.m */; };
+		1685475A1A0DF0A9005751CC /* FRPersonLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547591A0DF0A9005751CC /* FRPersonLabel.m */; };
+		1685475C1A0DF18A005751CC /* FRServer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1685475B1A0DF18A005751CC /* FRServer.storyboard */; };
+		168547611A0DF381005751CC /* FRMainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168547601A0DF381005751CC /* FRMainMenu.storyboard */; };
+		168547631A0DF7C1005751CC /* FRSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168547621A0DF7C1005751CC /* FRSignUp.storyboard */; };
+		168547651A0E7F2A005751CC /* FRRecognition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168547641A0E7F2A005751CC /* FRRecognition.storyboard */; };
+		168547681A0E7FB8005751CC /* FRRecognitionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547671A0E7FB8005751CC /* FRRecognitionUtilities.m */; };
+		1685476B1A0F01B9005751CC /* FRAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685476A1A0F01B9005751CC /* FRAccessToken.m */; };
+		1685476E1A0F067A005751CC /* FRServerUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685476D1A0F067A005751CC /* FRServerUtilities.m */; };
+		168547721A0F0B84005751CC /* FRServerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547701A0F0B84005751CC /* FRServerTableViewCell.m */; };
+		168547731A0F0B84005751CC /* FRServerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 168547711A0F0B84005751CC /* FRServerTableViewCell.xib */; };
+		168547761A0F2D17005751CC /* FRLoginNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547751A0F2D17005751CC /* FRLoginNetworkOperation.m */; };
+		168547791A0F3B33005751CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1685477B1A0F3B33005751CC /* Localizable.strings */; };
+		168547811A0F4395005751CC /* FRActivityLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 168547801A0F4395005751CC /* FRActivityLoaderView.m */; };
+		168547841A0F43B7005751CC /* FRActivityLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 168547831A0F43B7005751CC /* FRActivityLoaderView.xib */; };
 		1699A0A7189A050000B56929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A6189A050000B56929 /* AVFoundation.framework */; };
 		1699A0A9189A0AC900B56929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699A0A8189A0AC900B56929 /* QuartzCore.framework */; };
-		16BC8CFA18AFB732007D74E5 /* CaptureFaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */; };
-		16BC8CFD18AFD8A9007D74E5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */; };
-		16BC8D0518AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */; };
-		16BC8D0818B02652007D74E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0718B02652007D74E5 /* Person.m */; };
-		16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */; };
-		16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */; };
-		16BC8D1318B157F7007D74E5 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */; };
-		16BC8D1618B15D3B007D74E5 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */; };
-		16BC8D1918B160A2007D74E5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC8D1818B160A2007D74E5 /* User.m */; };
-		16DB558918F712F500D2127E /* PersonLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DB558818F712F500D2127E /* PersonLabel.m */; };
-		16DB558C18F717FE00D2127E /* RecognizedPersonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DB558B18F717FE00D2127E /* RecognizedPersonTableViewController.m */; };
 		56F1721C18998477000D990C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721B18998477000D990C /* Foundation.framework */; };
 		56F1721E18998477000D990C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721D18998477000D990C /* CoreGraphics.framework */; };
 		56F1722018998477000D990C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F1721F18998477000D990C /* UIKit.framework */; };
@@ -53,8 +82,6 @@
 		56F1728B18998F06000D990C /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728018998F06000D990C /* SocketIOPacket.m */; };
 		56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728318998F06000D990C /* SocketIOTransportWebsocket.m */; };
 		56F1729018998F06000D990C /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1728518998F06000D990C /* SocketIOTransportXHR.m */; };
-		56F17292189992F8000D990C /* iPhone_LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */; };
-		56F172DC1899964D000D990C /* FaceRecServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F172DB1899964D000D990C /* FaceRecServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,43 +95,93 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1601A90418BC65D50082B146 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		1601A90518BC65D50082B146 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		1601A90A18BC80F70082B146 /* ServerCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCreationViewController.h; sourceTree = "<group>"; };
-		1601A90B18BC80F70082B146 /* ServerCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCreationViewController.m; sourceTree = "<group>"; };
-		1601A90D18BD69870082B146 /* ServerInfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerInfoButton.h; sourceTree = "<group>"; };
-		1601A90E18BD69870082B146 /* ServerInfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerInfoButton.m; sourceTree = "<group>"; };
-		1601A91018BD70EB0082B146 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
-		1601A91118BD70EB0082B146 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		161378CF1A107AA400F9D988 /* UIImage+RotationMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RotationMethods.h"; path = "UIUtilities/UIImage+RotationMethods.h"; sourceTree = "<group>"; };
+		161378D01A107AA400F9D988 /* UIImage+RotationMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RotationMethods.m"; path = "UIUtilities/UIImage+RotationMethods.m"; sourceTree = "<group>"; };
+		161378D21A107B2600F9D988 /* FRCaptureFace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FRCaptureFace.storyboard; path = Features/CaptureFace/FRCaptureFace.storyboard; sourceTree = "<group>"; };
+		161378D41A107B5800F9D988 /* FRFaceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRFaceUtilities.h; path = FaceUtilities/FRFaceUtilities.h; sourceTree = "<group>"; };
+		161378D51A107B5800F9D988 /* FRFaceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRFaceUtilities.m; path = FaceUtilities/FRFaceUtilities.m; sourceTree = "<group>"; };
+		161378D81A107BB500F9D988 /* FRCaptureFaceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRCaptureFaceUtilities.h; path = Features/CaptureFace/FRCaptureFaceUtilities.h; sourceTree = "<group>"; };
+		161378D91A107BB500F9D988 /* FRCaptureFaceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRCaptureFaceUtilities.m; path = Features/CaptureFace/FRCaptureFaceUtilities.m; sourceTree = "<group>"; };
+		1624B4BB1A0F7D5C00144F24 /* FRNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRNetworkOperation.h; path = NetworkUtility/FRNetworkOperation.h; sourceTree = "<group>"; };
+		1624B4BC1A0F7D5C00144F24 /* FRNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRNetworkOperation.m; path = NetworkUtility/FRNetworkOperation.m; sourceTree = "<group>"; };
+		1624B4BF1A0F813A00144F24 /* FRMainMenuNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRMainMenuNetworkOperation.h; path = Features/MainMenu/FRMainMenuNetworkOperation.h; sourceTree = "<group>"; };
+		1624B4C01A0F813A00144F24 /* FRMainMenuNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRMainMenuNetworkOperation.m; path = Features/MainMenu/FRMainMenuNetworkOperation.m; sourceTree = "<group>"; };
+		1624B4C21A0FCF7100144F24 /* FRSignUpNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRSignUpNetworkOperation.h; path = Features/SignUp/FRSignUpNetworkOperation.h; sourceTree = "<group>"; };
+		1624B4C31A0FCF7100144F24 /* FRSignUpNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRSignUpNetworkOperation.m; path = Features/SignUp/FRSignUpNetworkOperation.m; sourceTree = "<group>"; };
+		1624B4C51A0FEF0C00144F24 /* FRPerson.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FRPerson.storyboard; path = Features/Person/FRPerson.storyboard; sourceTree = "<group>"; };
+		1624B4C71A0FEF2A00144F24 /* FRPersonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPersonUtilities.h; path = Features/Person/FRPersonUtilities.h; sourceTree = "<group>"; };
+		1624B4C81A0FEF2A00144F24 /* FRPersonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPersonUtilities.m; path = Features/Person/FRPersonUtilities.m; sourceTree = "<group>"; };
+		1624B4CA1A0FF42A00144F24 /* FRPersonNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPersonNetworkOperation.h; path = Features/Person/FRPersonNetworkOperation.h; sourceTree = "<group>"; };
+		1624B4CB1A0FF42A00144F24 /* FRPersonNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPersonNetworkOperation.m; path = Features/Person/FRPersonNetworkOperation.m; sourceTree = "<group>"; };
+		1624B4CD1A1003D600144F24 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		1624B4CF1A10562B00144F24 /* FRPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPersonTableViewCell.h; path = Features/Person/FRPersonTableViewCell.h; sourceTree = "<group>"; };
+		1624B4D01A10562B00144F24 /* FRPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPersonTableViewCell.m; path = Features/Person/FRPersonTableViewCell.m; sourceTree = "<group>"; };
+		1624B4D11A10562B00144F24 /* FRPersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FRPersonTableViewCell.xib; path = Features/Person/FRPersonTableViewCell.xib; sourceTree = "<group>"; };
+		1652E5B81A11F7AC00F8D3D9 /* UIImage+ConversionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ConversionHelper.h"; path = "UIUtilities/UIImage+ConversionHelper.h"; sourceTree = "<group>"; };
+		1652E5B91A11F7AC00F8D3D9 /* UIImage+ConversionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ConversionHelper.m"; path = "UIUtilities/UIImage+ConversionHelper.m"; sourceTree = "<group>"; };
+		1652E5BB1A136A4F00F8D3D9 /* FRCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRCameraViewController.h; path = UIUtilities/FRCameraViewController.h; sourceTree = "<group>"; };
+		1652E5BC1A136A4F00F8D3D9 /* FRCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRCameraViewController.m; path = UIUtilities/FRCameraViewController.m; sourceTree = "<group>"; };
 		166FD81718B1D61000A3FE12 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		166FD81D18B1D75800A3FE12 /* FaceRec.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FaceRec.xcdatamodel; sourceTree = "<group>"; };
-		166FD81F18B1D7E800A3FE12 /* ServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerListViewController.h; sourceTree = "<group>"; };
-		166FD82018B1D7E800A3FE12 /* ServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerListViewController.m; sourceTree = "<group>"; };
-		1699A0A3189A048800B56929 /* RecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognitionViewController.h; sourceTree = "<group>"; };
-		1699A0A4189A048800B56929 /* RecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognitionViewController.m; sourceTree = "<group>"; };
+		168547201A0DEA34005751CC /* FRServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRServerListViewController.m; path = Features/Server/FRServerListViewController.m; sourceTree = "<group>"; };
+		168547211A0DEA34005751CC /* FRServerCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRServerCreationViewController.m; path = Features/Server/FRServerCreationViewController.m; sourceTree = "<group>"; };
+		168547221A0DEA34005751CC /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Server.h; path = Features/Server/Server.h; sourceTree = "<group>"; };
+		168547231A0DEA34005751CC /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Server.m; path = Features/Server/Server.m; sourceTree = "<group>"; };
+		168547241A0DEA34005751CC /* FRServerCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRServerCreationViewController.h; path = Features/Server/FRServerCreationViewController.h; sourceTree = "<group>"; };
+		168547251A0DEA34005751CC /* ServerInfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerInfoButton.h; path = Features/Server/ServerInfoButton.h; sourceTree = "<group>"; };
+		168547261A0DEA34005751CC /* ServerInfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerInfoButton.m; path = Features/Server/ServerInfoButton.m; sourceTree = "<group>"; };
+		168547271A0DEA34005751CC /* FRServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRServerListViewController.h; path = Features/Server/FRServerListViewController.h; sourceTree = "<group>"; };
+		168547281A0DEA34005751CC /* FaceRecServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceRecServer.h; path = Features/Server/FaceRecServer.h; sourceTree = "<group>"; };
+		168547291A0DEA34005751CC /* FaceRecServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceRecServer.m; path = Features/Server/FaceRecServer.m; sourceTree = "<group>"; };
+		1685472F1A0DEA43005751CC /* FRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRLoginViewController.m; path = Features/Login/FRLoginViewController.m; sourceTree = "<group>"; };
+		168547301A0DEA43005751CC /* FRLoginUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRLoginUtilities.h; path = Features/Login/FRLoginUtilities.h; sourceTree = "<group>"; };
+		168547311A0DEA43005751CC /* FRLoginUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRLoginUtilities.m; path = Features/Login/FRLoginUtilities.m; sourceTree = "<group>"; };
+		168547321A0DEA43005751CC /* FRLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FRLogin.storyboard; path = Features/Login/FRLogin.storyboard; sourceTree = "<group>"; };
+		168547331A0DEA43005751CC /* FRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRLoginViewController.h; path = Features/Login/FRLoginViewController.h; sourceTree = "<group>"; };
+		168547371A0DEA56005751CC /* FRSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRSignUpViewController.m; path = Features/SignUp/FRSignUpViewController.m; sourceTree = "<group>"; };
+		168547381A0DEA56005751CC /* FRSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRSignUpViewController.h; path = Features/SignUp/FRSignUpViewController.h; sourceTree = "<group>"; };
+		1685473B1A0DEAB6005751CC /* FRPersonRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPersonRegistrationViewController.h; path = Features/Person/FRPersonRegistrationViewController.h; sourceTree = "<group>"; };
+		1685473C1A0DEAB6005751CC /* FRPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPeopleViewController.h; path = Features/Person/FRPeopleViewController.h; sourceTree = "<group>"; };
+		1685473D1A0DEAB6005751CC /* FRPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPeopleViewController.m; path = Features/Person/FRPeopleViewController.m; sourceTree = "<group>"; };
+		1685473E1A0DEAB6005751CC /* FRPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPerson.h; path = Features/Person/FRPerson.h; sourceTree = "<group>"; };
+		1685473F1A0DEAB6005751CC /* FRPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPerson.m; path = Features/Person/FRPerson.m; sourceTree = "<group>"; };
+		168547401A0DEAB6005751CC /* FRPersonRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPersonRegistrationViewController.m; path = Features/Person/FRPersonRegistrationViewController.m; sourceTree = "<group>"; };
+		168547451A0DEF1A005751CC /* FRCaptureFaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRCaptureFaceViewController.m; path = Features/CaptureFace/FRCaptureFaceViewController.m; sourceTree = "<group>"; };
+		168547461A0DEF1A005751CC /* FRCaptureFaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRCaptureFaceViewController.h; path = Features/CaptureFace/FRCaptureFaceViewController.h; sourceTree = "<group>"; };
+		168547491A0DEFB4005751CC /* FRRecognizedPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRRecognizedPersonViewController.m; path = Features/Recognition/FRRecognizedPersonViewController.m; sourceTree = "<group>"; };
+		1685474A1A0DEFB4005751CC /* FRRecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRRecognitionViewController.m; path = Features/Recognition/FRRecognitionViewController.m; sourceTree = "<group>"; };
+		1685474B1A0DEFB4005751CC /* FRRecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRRecognitionViewController.h; path = Features/Recognition/FRRecognitionViewController.h; sourceTree = "<group>"; };
+		1685474C1A0DEFB4005751CC /* FRRecognizedPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRRecognizedPersonViewController.h; path = Features/Recognition/FRRecognizedPersonViewController.h; sourceTree = "<group>"; };
+		168547501A0DF032005751CC /* FRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRUser.h; path = Features/User/FRUser.h; sourceTree = "<group>"; };
+		168547511A0DF032005751CC /* FRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRUser.m; path = Features/User/FRUser.m; sourceTree = "<group>"; };
+		168547541A0DF07D005751CC /* FRMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRMainMenuViewController.m; path = Features/MainMenu/FRMainMenuViewController.m; sourceTree = "<group>"; };
+		168547551A0DF07D005751CC /* FRMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRMainMenuViewController.h; path = Features/MainMenu/FRMainMenuViewController.h; sourceTree = "<group>"; };
+		168547581A0DF0A9005751CC /* FRPersonLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRPersonLabel.h; path = Features/Recognition/FRPersonLabel.h; sourceTree = "<group>"; };
+		168547591A0DF0A9005751CC /* FRPersonLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRPersonLabel.m; path = Features/Recognition/FRPersonLabel.m; sourceTree = "<group>"; };
+		1685475B1A0DF18A005751CC /* FRServer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FRServer.storyboard; path = Features/Server/FRServer.storyboard; sourceTree = "<group>"; };
+		168547601A0DF381005751CC /* FRMainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FRMainMenu.storyboard; path = Features/MainMenu/FRMainMenu.storyboard; sourceTree = "<group>"; };
+		168547621A0DF7C1005751CC /* FRSignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FRSignUp.storyboard; path = Features/SignUp/FRSignUp.storyboard; sourceTree = "<group>"; };
+		168547641A0E7F2A005751CC /* FRRecognition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FRRecognition.storyboard; path = Features/Recognition/FRRecognition.storyboard; sourceTree = "<group>"; };
+		168547661A0E7FB8005751CC /* FRRecognitionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRRecognitionUtilities.h; path = Features/Recognition/FRRecognitionUtilities.h; sourceTree = "<group>"; };
+		168547671A0E7FB8005751CC /* FRRecognitionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRRecognitionUtilities.m; path = Features/Recognition/FRRecognitionUtilities.m; sourceTree = "<group>"; };
+		168547691A0F01B9005751CC /* FRAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRAccessToken.h; path = Features/User/FRAccessToken.h; sourceTree = "<group>"; };
+		1685476A1A0F01B9005751CC /* FRAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRAccessToken.m; path = Features/User/FRAccessToken.m; sourceTree = "<group>"; };
+		1685476C1A0F067A005751CC /* FRServerUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRServerUtilities.h; path = Features/Server/FRServerUtilities.h; sourceTree = "<group>"; };
+		1685476D1A0F067A005751CC /* FRServerUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRServerUtilities.m; path = Features/Server/FRServerUtilities.m; sourceTree = "<group>"; };
+		1685476F1A0F0B84005751CC /* FRServerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRServerTableViewCell.h; path = Features/Server/FRServerTableViewCell.h; sourceTree = "<group>"; };
+		168547701A0F0B84005751CC /* FRServerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRServerTableViewCell.m; path = Features/Server/FRServerTableViewCell.m; sourceTree = "<group>"; };
+		168547711A0F0B84005751CC /* FRServerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FRServerTableViewCell.xib; path = Features/Server/FRServerTableViewCell.xib; sourceTree = "<group>"; };
+		168547741A0F2D17005751CC /* FRLoginNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRLoginNetworkOperation.h; path = Features/Login/FRLoginNetworkOperation.h; sourceTree = "<group>"; };
+		168547751A0F2D17005751CC /* FRLoginNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRLoginNetworkOperation.m; path = Features/Login/FRLoginNetworkOperation.m; sourceTree = "<group>"; };
+		1685477A1A0F3B33005751CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1685477C1A0F3B75005751CC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1685477D1A0F3B75005751CC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1685477E1A0F3B75005751CC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1685477F1A0F4395005751CC /* FRActivityLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FRActivityLoaderView.h; path = UIUtilities/FRActivityLoaderView.h; sourceTree = "<group>"; };
+		168547801A0F4395005751CC /* FRActivityLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FRActivityLoaderView.m; path = UIUtilities/FRActivityLoaderView.m; sourceTree = "<group>"; };
+		168547831A0F43B7005751CC /* FRActivityLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FRActivityLoaderView.xib; path = UIUtilities/FRActivityLoaderView.xib; sourceTree = "<group>"; };
 		1699A0A6189A050000B56929 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1699A0A8189A0AC900B56929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		16BC8CF818AFB732007D74E5 /* CaptureFaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureFaceViewController.h; sourceTree = "<group>"; };
-		16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureFaceViewController.m; sourceTree = "<group>"; };
-		16BC8CFB18AFD8A9007D74E5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_MainStoryboard.storyboard; sourceTree = "<group>"; };
-		16BC8D0618B02652007D74E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		16BC8D0718B02652007D74E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		16BC8D0918B02C8B007D74E5 /* PeopleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewController.h; sourceTree = "<group>"; };
-		16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewController.m; sourceTree = "<group>"; };
-		16BC8D0C18B035C7007D74E5 /* PersonRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRegisterViewController.h; sourceTree = "<group>"; };
-		16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRegisterViewController.m; sourceTree = "<group>"; };
-		16BC8D1118B157F7007D74E5 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
-		16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
-		16BC8D1418B15D3B007D74E5 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
-		16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
-		16BC8D1718B160A2007D74E5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		16BC8D1818B160A2007D74E5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		16DB558718F712F500D2127E /* PersonLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonLabel.h; sourceTree = "<group>"; };
-		16DB558818F712F500D2127E /* PersonLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonLabel.m; sourceTree = "<group>"; };
-		16DB558A18F717FE00D2127E /* RecognizedPersonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizedPersonTableViewController.h; sourceTree = "<group>"; };
-		16DB558B18F717FE00D2127E /* RecognizedPersonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizedPersonTableViewController.m; sourceTree = "<group>"; };
 		56F1721818998477000D990C /* FaceRec-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FaceRec-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F1721B18998477000D990C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56F1721D18998477000D990C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,9 +221,6 @@
 		56F1728318998F06000D990C /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportWebsocket.m; path = "../submodules/socket.IO-objc/SocketIOTransportWebsocket.m"; sourceTree = "<group>"; };
 		56F1728418998F06000D990C /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportXHR.h; path = "../submodules/socket.IO-objc/SocketIOTransportXHR.h"; sourceTree = "<group>"; };
 		56F1728518998F06000D990C /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = "../submodules/socket.IO-objc/SocketIOTransportXHR.m"; sourceTree = "<group>"; };
-		56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_LoginStoryboard.storyboard; sourceTree = "<group>"; };
-		56F172DA1899964D000D990C /* FaceRecServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecServer.h; sourceTree = "<group>"; };
-		56F172DB1899964D000D990C /* FaceRecServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceRecServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,10 +255,190 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161378D71A107B5F00F9D988 /* Face Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				161378D41A107B5800F9D988 /* FRFaceUtilities.h */,
+				161378D51A107B5800F9D988 /* FRFaceUtilities.m */,
+			);
+			name = "Face Utilities";
+			sourceTree = "<group>";
+		};
+		1624B4BE1A0F7D6900144F24 /* Network Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1624B4BB1A0F7D5C00144F24 /* FRNetworkOperation.h */,
+				1624B4BC1A0F7D5C00144F24 /* FRNetworkOperation.m */,
+			);
+			name = "Network Utility";
+			sourceTree = "<group>";
+		};
+		168547071A0DE4DF005751CC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				168547301A0DEA43005751CC /* FRLoginUtilities.h */,
+				168547311A0DEA43005751CC /* FRLoginUtilities.m */,
+				168547321A0DEA43005751CC /* FRLogin.storyboard */,
+				168547331A0DEA43005751CC /* FRLoginViewController.h */,
+				1685472F1A0DEA43005751CC /* FRLoginViewController.m */,
+				168547741A0F2D17005751CC /* FRLoginNetworkOperation.h */,
+				168547751A0F2D17005751CC /* FRLoginNetworkOperation.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		1685471A1A0DE768005751CC /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				168547271A0DEA34005751CC /* FRServerListViewController.h */,
+				168547201A0DEA34005751CC /* FRServerListViewController.m */,
+				1685476C1A0F067A005751CC /* FRServerUtilities.h */,
+				1685476D1A0F067A005751CC /* FRServerUtilities.m */,
+				168547241A0DEA34005751CC /* FRServerCreationViewController.h */,
+				168547211A0DEA34005751CC /* FRServerCreationViewController.m */,
+				1685476F1A0F0B84005751CC /* FRServerTableViewCell.h */,
+				168547701A0F0B84005751CC /* FRServerTableViewCell.m */,
+				168547711A0F0B84005751CC /* FRServerTableViewCell.xib */,
+				168547221A0DEA34005751CC /* Server.h */,
+				168547231A0DEA34005751CC /* Server.m */,
+				168547251A0DEA34005751CC /* ServerInfoButton.h */,
+				168547261A0DEA34005751CC /* ServerInfoButton.m */,
+				168547281A0DEA34005751CC /* FaceRecServer.h */,
+				168547291A0DEA34005751CC /* FaceRecServer.m */,
+				1685475B1A0DF18A005751CC /* FRServer.storyboard */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		1685471B1A0DE84F005751CC /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				56F1726518998CB8000D990C /* socket.IO-objc */,
+				56F1726C18998DFB000D990C /* SocketRocket */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		1685471F1A0DE9EF005751CC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				168547381A0DEA56005751CC /* FRSignUpViewController.h */,
+				168547371A0DEA56005751CC /* FRSignUpViewController.m */,
+				1624B4C21A0FCF7100144F24 /* FRSignUpNetworkOperation.h */,
+				1624B4C31A0FCF7100144F24 /* FRSignUpNetworkOperation.m */,
+				168547621A0DF7C1005751CC /* FRSignUp.storyboard */,
+			);
+			name = SignUp;
+			sourceTree = "<group>";
+		};
+		1685473A1A0DEA60005751CC /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				168547571A0DF083005751CC /* MainMenu */,
+				168547531A0DF037005751CC /* User */,
+				1685474F1A0DEFC0005751CC /* Recognition */,
+				168547481A0DEF26005751CC /* CaptureFace */,
+				1685471A1A0DE768005751CC /* Server */,
+				168547071A0DE4DF005751CC /* Login */,
+				1685471F1A0DE9EF005751CC /* SignUp */,
+				168547441A0DEABF005751CC /* Person */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		168547441A0DEABF005751CC /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				1685473C1A0DEAB6005751CC /* FRPeopleViewController.h */,
+				1685473D1A0DEAB6005751CC /* FRPeopleViewController.m */,
+				1685473B1A0DEAB6005751CC /* FRPersonRegistrationViewController.h */,
+				168547401A0DEAB6005751CC /* FRPersonRegistrationViewController.m */,
+				1685473E1A0DEAB6005751CC /* FRPerson.h */,
+				1685473F1A0DEAB6005751CC /* FRPerson.m */,
+				1624B4C51A0FEF0C00144F24 /* FRPerson.storyboard */,
+				1624B4C71A0FEF2A00144F24 /* FRPersonUtilities.h */,
+				1624B4C81A0FEF2A00144F24 /* FRPersonUtilities.m */,
+				1624B4CF1A10562B00144F24 /* FRPersonTableViewCell.h */,
+				1624B4D01A10562B00144F24 /* FRPersonTableViewCell.m */,
+				1624B4D11A10562B00144F24 /* FRPersonTableViewCell.xib */,
+				1624B4CA1A0FF42A00144F24 /* FRPersonNetworkOperation.h */,
+				1624B4CB1A0FF42A00144F24 /* FRPersonNetworkOperation.m */,
+			);
+			name = Person;
+			sourceTree = "<group>";
+		};
+		168547481A0DEF26005751CC /* CaptureFace */ = {
+			isa = PBXGroup;
+			children = (
+				168547461A0DEF1A005751CC /* FRCaptureFaceViewController.h */,
+				168547451A0DEF1A005751CC /* FRCaptureFaceViewController.m */,
+				1652E5BB1A136A4F00F8D3D9 /* FRCameraViewController.h */,
+				1652E5BC1A136A4F00F8D3D9 /* FRCameraViewController.m */,
+				161378D81A107BB500F9D988 /* FRCaptureFaceUtilities.h */,
+				161378D91A107BB500F9D988 /* FRCaptureFaceUtilities.m */,
+				161378D21A107B2600F9D988 /* FRCaptureFace.storyboard */,
+			);
+			name = CaptureFace;
+			sourceTree = "<group>";
+		};
+		1685474F1A0DEFC0005751CC /* Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				168547581A0DF0A9005751CC /* FRPersonLabel.h */,
+				168547591A0DF0A9005751CC /* FRPersonLabel.m */,
+				1685474B1A0DEFB4005751CC /* FRRecognitionViewController.h */,
+				1685474A1A0DEFB4005751CC /* FRRecognitionViewController.m */,
+				1685474C1A0DEFB4005751CC /* FRRecognizedPersonViewController.h */,
+				168547491A0DEFB4005751CC /* FRRecognizedPersonViewController.m */,
+				168547661A0E7FB8005751CC /* FRRecognitionUtilities.h */,
+				168547671A0E7FB8005751CC /* FRRecognitionUtilities.m */,
+				168547641A0E7F2A005751CC /* FRRecognition.storyboard */,
+			);
+			name = Recognition;
+			sourceTree = "<group>";
+		};
+		168547531A0DF037005751CC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				168547501A0DF032005751CC /* FRUser.h */,
+				168547511A0DF032005751CC /* FRUser.m */,
+				168547691A0F01B9005751CC /* FRAccessToken.h */,
+				1685476A1A0F01B9005751CC /* FRAccessToken.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		168547571A0DF083005751CC /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				168547601A0DF381005751CC /* FRMainMenu.storyboard */,
+				168547541A0DF07D005751CC /* FRMainMenuViewController.m */,
+				168547551A0DF07D005751CC /* FRMainMenuViewController.h */,
+				1624B4BF1A0F813A00144F24 /* FRMainMenuNetworkOperation.h */,
+				1624B4C01A0F813A00144F24 /* FRMainMenuNetworkOperation.m */,
+			);
+			name = MainMenu;
+			sourceTree = "<group>";
+		};
+		168547821A0F439B005751CC /* UI Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				161378CF1A107AA400F9D988 /* UIImage+RotationMethods.h */,
+				161378D01A107AA400F9D988 /* UIImage+RotationMethods.m */,
+				1685477F1A0F4395005751CC /* FRActivityLoaderView.h */,
+				168547801A0F4395005751CC /* FRActivityLoaderView.m */,
+				168547831A0F43B7005751CC /* FRActivityLoaderView.xib */,
+				1652E5B81A11F7AC00F8D3D9 /* UIImage+ConversionHelper.h */,
+				1652E5B91A11F7AC00F8D3D9 /* UIImage+ConversionHelper.m */,
+			);
+			name = "UI Utilities";
+			sourceTree = "<group>";
+		};
 		56F1720F18998477000D990C = {
 			isa = PBXGroup;
 			children = (
 				56F1722118998477000D990C /* FaceRec-iOS */,
+				56F1722218998477000D990C /* Supporting Files */,
 				56F1723A18998478000D990C /* FaceRec-iOSTests */,
 				56F1721A18998477000D990C /* Frameworks */,
 				56F1721918998477000D990C /* Products */,
@@ -222,49 +476,17 @@
 		56F1722118998477000D990C /* FaceRec-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				56F1726518998CB8000D990C /* socket.IO-objc */,
-				56F1726C18998DFB000D990C /* SocketRocket */,
-				1601A90A18BC80F70082B146 /* ServerCreationViewController.h */,
-				1601A90B18BC80F70082B146 /* ServerCreationViewController.m */,
-				166FD81C18B1D75800A3FE12 /* FaceRec.xcdatamodeld */,
-				1601A91018BD70EB0082B146 /* Server.h */,
-				1601A91118BD70EB0082B146 /* Server.m */,
-				166FD81F18B1D7E800A3FE12 /* ServerListViewController.h */,
-				166FD82018B1D7E800A3FE12 /* ServerListViewController.m */,
-				1601A90D18BD69870082B146 /* ServerInfoButton.h */,
-				1601A90E18BD69870082B146 /* ServerInfoButton.m */,
+				1685471B1A0DE84F005751CC /* Libraries */,
+				1685473A1A0DEA60005751CC /* Features */,
+				168547821A0F439B005751CC /* UI Utilities */,
+				1624B4BE1A0F7D6900144F24 /* Network Utility */,
+				161378D71A107B5F00F9D988 /* Face Utilities */,
 				56F1722A18998477000D990C /* AppDelegate.h */,
+				166FD81C18B1D75800A3FE12 /* FaceRec.xcdatamodeld */,
 				56F1722B18998477000D990C /* AppDelegate.m */,
-				16BC8D1118B157F7007D74E5 /* KeychainItemWrapper.h */,
-				16BC8D1218B157F7007D74E5 /* KeychainItemWrapper.m */,
-				16BC8D0618B02652007D74E5 /* Person.h */,
-				16BC8D0718B02652007D74E5 /* Person.m */,
-				16DB558718F712F500D2127E /* PersonLabel.h */,
-				16DB558818F712F500D2127E /* PersonLabel.m */,
-				56F172DA1899964D000D990C /* FaceRecServer.h */,
-				56F172DB1899964D000D990C /* FaceRecServer.m */,
-				56F17291189992F8000D990C /* iPhone_LoginStoryboard.storyboard */,
-				16BC8D0418AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard */,
-				16DB558A18F717FE00D2127E /* RecognizedPersonTableViewController.h */,
-				16DB558B18F717FE00D2127E /* RecognizedPersonTableViewController.m */,
-				16BC8D1418B15D3B007D74E5 /* MainMenuViewController.h */,
-				16BC8D1518B15D3B007D74E5 /* MainMenuViewController.m */,
-				16BC8D0C18B035C7007D74E5 /* PersonRegisterViewController.h */,
-				16BC8D0D18B035C7007D74E5 /* PersonRegisterViewController.m */,
-				16BC8D0918B02C8B007D74E5 /* PeopleTableViewController.h */,
-				16BC8D0A18B02C8B007D74E5 /* PeopleTableViewController.m */,
-				1601A90418BC65D50082B146 /* SignUpViewController.h */,
-				1601A90518BC65D50082B146 /* SignUpViewController.m */,
-				16BC8CFB18AFD8A9007D74E5 /* LoginViewController.h */,
-				16BC8CFC18AFD8A9007D74E5 /* LoginViewController.m */,
-				16BC8D1718B160A2007D74E5 /* User.h */,
-				16BC8D1818B160A2007D74E5 /* User.m */,
-				1699A0A3189A048800B56929 /* RecognitionViewController.h */,
-				1699A0A4189A048800B56929 /* RecognitionViewController.m */,
-				16BC8CF818AFB732007D74E5 /* CaptureFaceViewController.h */,
-				16BC8CF918AFB732007D74E5 /* CaptureFaceViewController.m */,
+				1624B4CD1A1003D600144F24 /* Launch Screen.xib */,
+				1685477B1A0F3B33005751CC /* Localizable.strings */,
 				56F1722D18998477000D990C /* Images.xcassets */,
-				56F1722218998477000D990C /* Supporting Files */,
 			);
 			path = "FaceRec-iOS";
 			sourceTree = "<group>";
@@ -278,6 +500,7 @@
 				56F1722918998477000D990C /* FaceRec-iOS-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = "FaceRec-iOS";
 			sourceTree = "<group>";
 		};
 		56F1723A18998478000D990C /* FaceRec-iOSTests */ = {
@@ -377,9 +600,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Charles Wang";
 				TargetAttributes = {
-					56F1721718998477000D990C = {
-						DevelopmentTeam = Y8LYQBW8GY;
-					};
 					56F1723218998477000D990C = {
 						TestTargetID = 56F1721718998477000D990C;
 					};
@@ -391,6 +611,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = 56F1720F18998477000D990C;
 			productRefGroup = 56F1721918998477000D990C /* Products */;
@@ -410,8 +631,18 @@
 			files = (
 				56F1722618998477000D990C /* InfoPlist.strings in Resources */,
 				56F1722E18998477000D990C /* Images.xcassets in Resources */,
-				16BC8D0518AFFCBB007D74E5 /* iPhone_MainStoryboard.storyboard in Resources */,
-				56F17292189992F8000D990C /* iPhone_LoginStoryboard.storyboard in Resources */,
+				168547631A0DF7C1005751CC /* FRSignUp.storyboard in Resources */,
+				168547361A0DEA43005751CC /* FRLogin.storyboard in Resources */,
+				168547791A0F3B33005751CC /* Localizable.strings in Resources */,
+				1624B4CE1A1003D600144F24 /* Launch Screen.xib in Resources */,
+				1624B4D31A10562B00144F24 /* FRPersonTableViewCell.xib in Resources */,
+				1624B4C61A0FEF0C00144F24 /* FRPerson.storyboard in Resources */,
+				161378D31A107B2600F9D988 /* FRCaptureFace.storyboard in Resources */,
+				168547731A0F0B84005751CC /* FRServerTableViewCell.xib in Resources */,
+				168547841A0F43B7005751CC /* FRActivityLoaderView.xib in Resources */,
+				1685475C1A0DF18A005751CC /* FRServer.storyboard in Resources */,
+				168547651A0E7F2A005751CC /* FRRecognition.storyboard in Resources */,
+				168547611A0DF381005751CC /* FRMainMenu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,34 +661,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168547721A0F0B84005751CC /* FRServerTableViewCell.m in Sources */,
 				56F1728718998F06000D990C /* SocketIO.m in Sources */,
-				1699A0A5189A048800B56929 /* RecognitionViewController.m in Sources */,
-				16BC8CFA18AFB732007D74E5 /* CaptureFaceViewController.m in Sources */,
-				1601A90C18BC80F70082B146 /* ServerCreationViewController.m in Sources */,
-				1601A90F18BD69870082B146 /* ServerInfoButton.m in Sources */,
+				161378D11A107AA400F9D988 /* UIImage+RotationMethods.m in Sources */,
+				1685472A1A0DEA34005751CC /* FRServerListViewController.m in Sources */,
+				168547421A0DEAB6005751CC /* FRPerson.m in Sources */,
+				1624B4D21A10562B00144F24 /* FRPersonTableViewCell.m in Sources */,
+				1685472D1A0DEA34005751CC /* ServerInfoButton.m in Sources */,
+				1624B4C41A0FCF7100144F24 /* FRSignUpNetworkOperation.m in Sources */,
+				168547431A0DEAB6005751CC /* FRPersonRegistrationViewController.m in Sources */,
+				1685476B1A0F01B9005751CC /* FRAccessToken.m in Sources */,
 				56F1722818998477000D990C /* main.m in Sources */,
+				1685472E1A0DEA34005751CC /* FaceRecServer.m in Sources */,
 				56F1722C18998477000D990C /* AppDelegate.m in Sources */,
 				56F1727418998E68000D990C /* base64.c in Sources */,
-				16BC8D1618B15D3B007D74E5 /* MainMenuViewController.m in Sources */,
-				16BC8D0818B02652007D74E5 /* Person.m in Sources */,
-				16BC8D0E18B035C7007D74E5 /* PersonRegisterViewController.m in Sources */,
+				1685475A1A0DF0A9005751CC /* FRPersonLabel.m in Sources */,
+				1685472C1A0DEA34005751CC /* Server.m in Sources */,
 				56F1727718998E68000D990C /* NSData+SRB64Additions.m in Sources */,
-				1601A90618BC65D50082B146 /* SignUpViewController.m in Sources */,
-				16BC8D1918B160A2007D74E5 /* User.m in Sources */,
-				1601A91218BD70EB0082B146 /* Server.m in Sources */,
-				56F172DC1899964D000D990C /* FaceRecServer.m in Sources */,
+				168547341A0DEA43005751CC /* FRLoginViewController.m in Sources */,
+				1685474E1A0DEFB4005751CC /* FRRecognitionViewController.m in Sources */,
+				161378DA1A107BB500F9D988 /* FRCaptureFaceUtilities.m in Sources */,
 				56F1727A18998E68000D990C /* SRWebSocket.m in Sources */,
-				166FD82118B1D7E800A3FE12 /* ServerListViewController.m in Sources */,
-				16DB558918F712F500D2127E /* PersonLabel.m in Sources */,
+				168547681A0E7FB8005751CC /* FRRecognitionUtilities.m in Sources */,
 				166FD81E18B1D75800A3FE12 /* FaceRec.xcdatamodeld in Sources */,
+				168547761A0F2D17005751CC /* FRLoginNetworkOperation.m in Sources */,
+				168547391A0DEA56005751CC /* FRSignUpViewController.m in Sources */,
+				168547471A0DEF1A005751CC /* FRCaptureFaceViewController.m in Sources */,
 				56F1728918998F06000D990C /* SocketIOJSONSerialization.m in Sources */,
+				1624B4BD1A0F7D5C00144F24 /* FRNetworkOperation.m in Sources */,
+				168547811A0F4395005751CC /* FRActivityLoaderView.m in Sources */,
 				56F1728B18998F06000D990C /* SocketIOPacket.m in Sources */,
-				16BC8D0B18B02C8B007D74E5 /* PeopleTableViewController.m in Sources */,
-				16BC8D1318B157F7007D74E5 /* KeychainItemWrapper.m in Sources */,
-				16DB558C18F717FE00D2127E /* RecognizedPersonTableViewController.m in Sources */,
+				161378D61A107B5800F9D988 /* FRFaceUtilities.m in Sources */,
 				56F1728E18998F06000D990C /* SocketIOTransportWebsocket.m in Sources */,
+				1685472B1A0DEA34005751CC /* FRServerCreationViewController.m in Sources */,
+				1624B4C91A0FEF2A00144F24 /* FRPersonUtilities.m in Sources */,
+				1685476E1A0F067A005751CC /* FRServerUtilities.m in Sources */,
+				1624B4CC1A0FF42A00144F24 /* FRPersonNetworkOperation.m in Sources */,
+				168547521A0DF032005751CC /* FRUser.m in Sources */,
+				1685474D1A0DEFB4005751CC /* FRRecognizedPersonViewController.m in Sources */,
+				168547411A0DEAB6005751CC /* FRPeopleViewController.m in Sources */,
+				1652E5BA1A11F7AC00F8D3D9 /* UIImage+ConversionHelper.m in Sources */,
+				1652E5BD1A136A4F00F8D3D9 /* FRCameraViewController.m in Sources */,
+				1624B4C11A0F813A00144F24 /* FRMainMenuNetworkOperation.m in Sources */,
+				168547351A0DEA43005751CC /* FRLoginUtilities.m in Sources */,
+				168547561A0DF07D005751CC /* FRMainMenuViewController.m in Sources */,
 				56F1729018998F06000D990C /* SocketIOTransportXHR.m in Sources */,
-				16BC8CFD18AFD8A9007D74E5 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,10 +728,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1685477B1A0F3B33005751CC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1685477A1A0F3B33005751CC /* en */,
+				1685477C1A0F3B75005751CC /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		56F1722418998477000D990C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				56F1722518998477000D990C /* en */,
+				1685477D1A0F3B75005751CC /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -492,6 +750,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				56F1723E18998478000D990C /* en */,
+				1685477E1A0F3B75005751CC /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -531,7 +790,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -564,7 +823,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -581,6 +840,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceRec-iOS/FaceRec-iOS-Prefix.pch";
 				INFOPLIST_FILE = "FaceRec-iOS/FaceRec-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -597,6 +857,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceRec-iOS/FaceRec-iOS-Prefix.pch";
 				INFOPLIST_FILE = "FaceRec-iOS/FaceRec-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
